@@ -1,0 +1,13 @@
+:root {
+  --bg-header: #fff;
+  --bg-main: #edf2f7;
+}
+
+.backoffice {
+  background-color: var(--bg-main);
+}
+.backoffice__header {
+  height: 3.75rem;
+  background-color: var(--bg-header);
+  border-bottom: 1px solid #ccc;
+}
