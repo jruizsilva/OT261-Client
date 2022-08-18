@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
+import { NavBar } from './ui/NavBar';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import NewsForm from './Components/News/NewsForm';
@@ -15,14 +16,12 @@ import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from './ui/NavBar';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <NavBar/>
         <Switch>
-       <NavBar/>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
@@ -35,7 +34,7 @@ function App() {
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} />
         </Switch>
-      </BrowserRouter>
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

@@ -85,3 +85,4 @@ export const NavBar = () => {
     </Navbar>
   );
 };
+ 
