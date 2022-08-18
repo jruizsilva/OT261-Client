@@ -14,11 +14,15 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavBar } from './ui/NavBar';
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Switch>
+       <NavBar/>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
