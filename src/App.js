@@ -1,9 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import { Route, Switch} from 'react-router-dom';
-import { NavBar } from './ui/NavBar';
+import { NavBar } from './Components/NavBar/NavBar';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
 import CategoriesForm from './Components/Categories/CategoriesForm';
 import NewsForm from './Components/News/NewsForm';
@@ -38,7 +37,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
