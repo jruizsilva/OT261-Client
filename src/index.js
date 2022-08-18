@@ -5,13 +5,11 @@ import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import { BackofficeLayout } from './Components/BackofficeLayout/BackofficeLayout';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <App /> */}
-      <BackofficeLayout />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
