@@ -1,16 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Landing, News } from '../pages';
+import Home from '../screen/home';
+import News from '../screen/news';
 
-const AppRoutes = () => {
+const Routing = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Home />} />
         <Route path="/news" element={<News />} />
       </Routes>
     </BrowserRouter>
   );
 };
 
-export default AppRoutes;
+export default Routing;

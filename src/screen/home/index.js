@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-const Landing = () => {
+const Home = () => {
   return (
     <div>
-      <h1>Landing</h1>
+      <h1>Home</h1>
       <Link to="/news">Go to News</Link>
     </div>
   );
 };
 
-export default Landing;
+export default Home;
