@@ -6,6 +6,7 @@ import news from './news.svg';
 import organization from './organization.svg';
 import slides from './slides.svg';
 import users from './users.svg';
+import edit from './edit.svg';
 
 const icons = {
   news,
@@ -16,6 +17,7 @@ const icons = {
   organization,
   slides,
   users,
+  edit,
 };
 
 export { icons };
