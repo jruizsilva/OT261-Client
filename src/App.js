@@ -13,7 +13,8 @@ import SchoolCampaign from './Campaigns/School/SchoolCampaign';
 import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
-import { BackofficeLayout } from './Components/BackofficeLayout/BackofficeLayout';
+import { BackofficeLayout } from './pages/BackofficeLayout/BackofficeLayout';
+import { BackofficeLayoutBootstrap } from './pages/BackofficeLayout/BackofficeLayoutBootstrap';
 
 function App() {
   return (
@@ -31,10 +32,10 @@ function App() {
           <Route path='/create-project' component={ProjectsForm} />
           <Route path='/school-campaign' component={SchoolCampaign} />
           <Route path='/toys-campaign' component={ToysCampaign} />
-          <Route path='/backoffice' component={BackofficeLayout} />
+          <Route path='/backoffice' component={BackofficeLayoutBootstrap} />
         </Switch>
       </BrowserRouter>
-      <div className='App'>
+      {/* <div className='App'>
         <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo' />
           <Counter />
@@ -80,7 +81,7 @@ function App() {
             </a>
           </span>
         </header>
-      </div>
+      </div> */}
     </>
   );
 }
