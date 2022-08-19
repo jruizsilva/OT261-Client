@@ -7,10 +7,13 @@
     background-color: #a80707 !important;
     border-color: #a80707 !important;
     box-shadow: 2px 2px 2px 1px rgba(1, 0, 0, 0.2);
+    margin-left: 10px ;
+    
   }
   .btn-login {
     border-radius: 15px !important;
     box-shadow: 2px 2px 2px 1px rgba(1, 0, 0, 0.2);
+  
   }
   .active {
     text-decoration: underline !important;
@@ -20,13 +23,18 @@
       text-align: center !important;
     }
     .btn-register {
+      display: flex;
+      position: relative !important;
       margin-top: 5px;
       width: 100%;
       border-radius: 25px !important;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
+      right: 10px !important
+     
     }
     .btn-login {
-      margin-bottom: 2px;
+      margin-top: 5px;
+      margin-bottom: 10px;
       width: 100%;
       border-radius: 25px !important;
     }
@@ -40,6 +48,7 @@
       width: 100%;
       border-radius: 25px !important;
       margin-bottom: 5px;
+    
     }
     .btn-login {
       margin-bottom: 2px;
