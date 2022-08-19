@@ -1,7 +1,7 @@
 import React from 'react';
-import './assets/reset.css';
-import style from './BackofficeLayout.module.css';
-import { icons } from './assets';
+import '../../assets/reset.css';
+import style from './backoffice.module.css';
+import { icons } from '../../assets';
 
 const cardList = [
   { id: 1, title: 'Novedades', image: icons.news },
@@ -14,7 +14,7 @@ const cardList = [
   { id: 8, title: 'Miembros', image: icons.members },
 ];
 
-export const BackofficeLayout = () => {
+export const Backoffice = () => {
   return (
     <div className={style.backoffice}>
       <header className={style.backoffice__header}>
