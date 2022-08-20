@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Nav, Navbar, Button } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 
-import "./NavBar.css";
+import './NavBar.css';
 import navBarLinks from './navBarLinks';
 
 const NavBar = () => {
@@ -30,7 +30,7 @@ const NavBar = () => {
             <Nav.Link
               as={Link}
               to={link.url}
-              className={url === link.url ? 'me-2 active' : 'me-2'}
+              className={url === link.url ? 'active' : ''}
               key={link.url}
             >
               {link.name}
@@ -38,13 +38,13 @@ const NavBar = () => {
           ))}
           <Button
             as={Link}
-            className="me-2 btn-login"
+            className="btn-login"
             variant="outline-dark"
             to="/login"
           >
             Iniciar Sesión
           </Button>
-          <Button as={Link} className="me-4 btn-register" to="/register">
+          <Button as={Link} className="btn-register" to="/register">
             Regístrate
           </Button>
         </Nav>
