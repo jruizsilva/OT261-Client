@@ -4,7 +4,7 @@ import { Nav, Navbar, Button } from "react-bootstrap";
 
 import "./NavBar.css";
 
-export const NavBar = () => {
+const NavBar = () => {
   const locate = useLocation();
 
   const [url, setUrl] = useState(null);
@@ -85,4 +85,5 @@ export const NavBar = () => {
     </Navbar>
   );
 };
- 
+
+export default NavBar;
