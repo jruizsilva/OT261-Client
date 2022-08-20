@@ -9,18 +9,11 @@ function authHeader() {
     return {};
   }
 }
+const url = process.env.REACT_APP_URL
 
-export const Get = async (routes) => {
-  axios
-    .get(`https://localhost:3000/${routes}`, authHeader())
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
-};
-
-export const Post = async (routes) => {
-  axios
-    .post(`https://localhost:3000/${routes}`, authHeader())
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
-};
+export const instance = axios.create({
+  baseURL: url,
+  timeout: 1000,
+  headers: authHeader() 
+})
 
