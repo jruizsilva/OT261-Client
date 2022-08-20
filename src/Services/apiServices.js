@@ -1,19 +1,19 @@
 import axios from "axios";
 
-function authHeader() {
-  const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("user"));
 
-  if (user && user.token) {
-    return { token: user.token };
-  } else {
-    return {};
-  }
-}
-const url = process.env.REACT_APP_URL
+const url = process.env.REACT_APP_URL;
 
 export const instance = axios.create({
   baseURL: url,
   timeout: 1000,
-  headers: authHeader() 
-})
+ 
+});
 
+instance.interceptors.request.use(
+  (request) => {
+    request.headers["token"] = user.token || {};
+    return request;
+  },
+  (err) => err
+);
