@@ -13,4 +13,10 @@ const adminCardList = [
 ];
 const userCardList = [{ id: 1, title: 'Editar perfil', image: icons.edit }];
 
-export { adminCardList, userCardList };
+const dropdownMenuLinks = [
+  { id: 1, title: 'Inicio', to: '/backoffice' },
+  { id: 2, title: 'Editar perfil', to: '#edit-profile-inprocess' },
+  { id: 3, title: 'Cerrar sesión', to: '#logout-inprocess' },
+];
+
+export { adminCardList, userCardList, dropdownMenuLinks };

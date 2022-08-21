@@ -10,8 +10,9 @@ import {
   Offcanvas,
   Nav,
 } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
-import { adminCardList, userCardList } from './consts';
+import { adminCardList, userCardList, dropdownMenuLinks } from './consts';
 import { StyledContainer, StyledHeader } from './styles';
 import { CardBackoffice } from '../../Components/CardBackoffice';
 
@@ -44,9 +45,11 @@ const Backoffice = () => {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className='justify-content-end flex-grow-1 pe-3'>
-                      <Nav.Link href='#action1'>Inicio</Nav.Link>
-                      <Nav.Link href='#action2'>Editar perfil</Nav.Link>
-                      <Nav.Link href='#action3'>Cerrar sesión</Nav.Link>
+                      {dropdownMenuLinks.map(({ to, title, id }) => (
+                        <LinkContainer key={id} to={to}>
+                          <Nav.Link>{title}</Nav.Link>
+                        </LinkContainer>
+                      ))}
                     </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
