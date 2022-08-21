@@ -27,7 +27,9 @@ const Backoffice = () => {
           <Container className='h-100'>
             <Navbar expand={false} className='mb-3 h-100'>
               <Container fluid>
-                <Navbar.Brand href='#'>Somos más</Navbar.Brand>
+                <LinkContainer to='/'>
+                  <Navbar.Brand>Somos más</Navbar.Brand>
+                </LinkContainer>
                 <Navbar.Toggle
                   aria-controls={`offcanvasNavbar-expand-${false}`}
                 />
