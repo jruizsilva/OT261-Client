@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
+  Container,
+  Row,
   Stack,
   Col,
   Card,
@@ -10,21 +12,9 @@ import {
   Nav,
   Offcanvas,
 } from 'react-bootstrap';
-import { icons } from '../../assets';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import { adminCardList, userCardList } from './consts';
-
-const StyledContainer = styled(Stack)`
-  background-color: #edf2f7;
-  min-height: 100vh;
-`;
-const StyledHeader = styled(Stack)`
-  height: 60px;
-  background-color: #fff;
-`;
+import { StyledContainer, StyledHeader } from './styles';
 
 const Backoffice = () => {
   const { user, isAdmin } = useSelector((state) => state.user);

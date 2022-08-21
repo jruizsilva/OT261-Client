@@ -1,3 +1,5 @@
+import { icons } from '../../assets';
+
 const adminCardList = [
   { id: 1, title: 'Novedades', image: icons.news },
   { id: 2, title: 'Actividades', image: icons.activities },
