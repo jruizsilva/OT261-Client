@@ -1,0 +1,98 @@
+.Title{
+  
+/* Hola! Bienvenidx */
+position: absolute;
+width: 407px;
+height: 72px;
+left: 143px;
+top: 178px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 48px;
+line-height: 72px;
+/* identical to box height */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.015em;
+
+color: #000000;
+  }
+
+  .news-head{
+
+    /* Últimas novedades */
+    
+    
+    position: absolute;
+    width: 308px;
+    height: 48px;
+    left: 143px;
+    top: 1366px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+    
+    } 
+
+   .containernews{
+      box-sizing: border-box;
+
+      position: absolute;
+      width: 448px;
+      height: 233px;
+      left: 110px;
+      top: 1440px;
+      
+      background: #7E9AFD;
+      border: 1px solid #0038FF;
+      border-radius: 20px;
+
+   }
+
+
+.imgnews{
+  position: absolute;
+  width: 196px;
+  height: 201px;
+  left: 158px;
+  top: 1446px;
+  
+  background: #C4C4C4;
+  border-radius: 20px;
+  }
+ 
+  .text{
+    
+position: absolute;
+width: 196px;
+height: 153px;
+left: 220px;
+top: 1300px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 18px;
+display: flex;
+align-items: center;
+letter-spacing: -0.015em;
+
+color: #000000;
+  }
+  
+ 
+
+
