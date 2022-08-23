@@ -1,59 +1,17 @@
 import React from 'react';
-import {
-  Container,
-  Row,
-  Stack,
-  Col,
-  Navbar,
-  Offcanvas,
-  Nav,
-} from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Container, Row, Stack, Col } from 'react-bootstrap';
 
-import { adminCardList, userCardList, dropdownMenuLinks } from './consts';
-import { StyledContainer, StyledHeader } from './styles';
+import { adminCardList, userCardList } from './consts';
+import { StyledContainer } from './styles';
 import { CardBackoffice } from '../../Components/CardBackoffice';
+import { useSelector } from 'react-redux';
 
 const Backoffice = () => {
+  const { isAdmin } = useSelector((state) => state);
+
   return (
     <>
-      <StyledContainer>
-        <StyledHeader as='header' className='border-bottom mb-4 mb-xl-5'>
-          <Container className='h-100'>
-            <Navbar expand={false} className='mb-3 h-100'>
-              <Container fluid>
-                <LinkContainer to='/'>
-                  <Navbar.Brand>Somos más</Navbar.Brand>
-                </LinkContainer>
-                <Navbar.Toggle
-                  aria-controls={`offcanvasNavbar-expand-${false}`}
-                />
-                <Navbar.Offcanvas
-                  id={`offcanvasNavbar-expand-${false}`}
-                  aria-labelledby={`offcanvasNavbarLabel-expand-${false}`}
-                  placement='end'
-                >
-                  <Offcanvas.Header closeButton>
-                    <Offcanvas.Title
-                      id={`offcanvasNavbarLabel-expand-${false}`}
-                    >
-                      Somos más
-                    </Offcanvas.Title>
-                  </Offcanvas.Header>
-                  <Offcanvas.Body>
-                    <Nav className='justify-content-end flex-grow-1 pe-3'>
-                      {dropdownMenuLinks.map(({ to, title, id }) => (
-                        <LinkContainer key={id} to={to}>
-                          <Nav.Link>{title}</Nav.Link>
-                        </LinkContainer>
-                      ))}
-                    </Nav>
-                  </Offcanvas.Body>
-                </Navbar.Offcanvas>
-              </Container>
-            </Navbar>
-          </Container>
-        </StyledHeader>
+      <StyledContainer className='pt-4'>
         <Stack as='main'>
           <Container>
             <Row as='ul' className='ps-0 list-unstyled'>
