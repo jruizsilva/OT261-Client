@@ -3,6 +3,7 @@ import './Home.css'
 import { useState, useEffect } from 'react';
 import Slider from '../../Components/Slider/Slider';
 import  NewsCard from './Newscard'
+
 const slides = [
   {
     id: 1,
@@ -45,6 +46,12 @@ const news = [
   text:'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
 }
 ]
+const title = {
+  title:'Hola Bien venidxs',
+  body: `qui dolorem ipsum, quia dolor sit amet consectetur adipisci velit, 
+  sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam 
+  aliquam quaerat voluptatem`
+}
 
 const Home = () => { 
 const [user, setUser] =  useState('')
@@ -54,15 +61,19 @@ useEffect(() =>{
 })
 console.log(user)
 return (
-    <div>
-      <div className='Title'>
-        <box className='box'>
-      <h1>Hola! BienvenidX</h1>
-      </box>
+  <div>
+    <div className='container-title'>
+<div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">{title.title}</h1>
+        <p class="col-md-8 fs-4">{title.body}</p>
+        <button class="btn btn-danger btn-lg" type="button">Conctactenos</button>
       </div>
-      <div>
-      <Slider slides={slides} classes={["w-50"]} />
-      </div>
+    </div>
+    </div>
+    <div className='slider'>
+    <Slider slides={slides} classes={["w-50"]} />
+    </div>
      <div>
    <p className='news-head'>
    Últimas noticias

@@ -13,15 +13,26 @@ const NewsCard = (props) => {
       <Row xs={1} md={8}  className="g-4">
       {Array.from({ length:1}).map((_, idx) => (
         <Col> 
-          <Card className= 'card-footer'>
+            {[
+        'Info',
+      ].map((variant) => (
+        <Card
+          bg={variant.toLowerCase()}
+          key={variant}
+          text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
+          style={{ width: '18rem' }}
+          className="mb-2"
+        >
             <Card.Img variant="top" src={props.img} />
             <Card.Body>
               <Card.Title>Novedades</Card.Title>
               <Card.Text>
                 {props.text}
               </Card.Text>
+              <button class="btn btn-primary btn-lg" type="button">Ver Novedades</button>
             </Card.Body>
           </Card>
+             ))}
         </Col>
           ))}
     </Row>

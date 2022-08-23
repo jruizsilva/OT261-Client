@@ -1,25 +1,19 @@
-.Title{
-  
-/* Hola! Bienvenidx */
-position: absolute;
-width: 407px;
-height: 72px;
+.container-title{
+  position: absolute;
+width: 567px;
+height: 210px;
 left: 143px;
-top: 178px;
+top: 260px;
+}
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 48px;
-line-height: 72px;
-/* identical to box height */
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: -0.015em;
-
-color: #000000;
+.slider{
+  width: 1300px;
+ height: 1300px;
+  position: absolute;
+  left: 735px;
+  top: 350px;
   }
+
 
   .news-head{
 
@@ -52,39 +46,4 @@ color: #000000;
       top: 1440px;
       display: flex;
    }
-
-
-.imgnews{
-  position: absolute;
-  width: 196px;
-  height: 201px;
-  left: 158px;
-  top: 1446px;
-  
-  background: #C4C4C4;
-  border-radius: 20px;
-  }
- 
-  .text{
-    
-position: absolute;
-width: 196px;
-height: 153px;
-left: 220px;
-top: 1300px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 18px;
-display: flex;
-align-items: center;
-letter-spacing: -0.015em;
-
-color: #000000;
-  }
-  
- 
-
 
