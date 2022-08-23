@@ -7,7 +7,7 @@ import { CardBackoffice } from '../../Components/CardBackoffice';
 import { useSelector } from 'react-redux';
 
 const Backoffice = () => {
-  const { isAdmin } = useSelector((state) => state);
+  const { isAdmin } = useSelector((state) => state.user);
 
   return (
     <>
