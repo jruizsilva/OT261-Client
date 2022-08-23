@@ -1,6 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
 import {
   Container,
   Row,
@@ -17,11 +15,8 @@ import { StyledContainer, StyledHeader } from './styles';
 import { CardBackoffice } from '../../Components/CardBackoffice';
 
 const Backoffice = () => {
-  const { user, isAdmin } = useSelector((state) => state.user);
-
   return (
     <>
-      {!user && <Navigate to='/' replace />}
       <StyledContainer>
         <StyledHeader as='header' className='border-bottom mb-4 mb-xl-5'>
           <Container className='h-100'>
