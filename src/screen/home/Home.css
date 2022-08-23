@@ -47,18 +47,10 @@ color: #000000;
     } 
 
    .containernews{
-      box-sizing: border-box;
-
-      position: absolute;
-      width: 448px;
-      height: 233px;
+    position: absolute;
       left: 110px;
       top: 1440px;
-      
-      background: #7E9AFD;
-      border: 1px solid #0038FF;
-      border-radius: 20px;
-
+      display: flex;
    }
 
 

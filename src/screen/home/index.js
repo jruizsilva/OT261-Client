@@ -1,41 +1,48 @@
 import { Link } from 'react-router-dom';
-import SlidesForm from '../../Components/Slides/SlidesForm';
 import './Home.css'
 import { useState, useEffect } from 'react';
-import NewsCard from './Newscard';
-
+import Slider from '../../Components/Slider/Slider';
+import  NewsCard from './Newscard'
+const slides = [
+  {
+    id: 1,
+    title: 'Slide 1',
+    image:
+      'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
+  },
+  {
+    id: 2,
+    title: 'Slide 2',
+    image:
+      'https://images.unsplash.com/photo-1657299143333-4a56a5519651?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.',
+  },
+  {
+    id: 3,
+    title: 'Slide 3',
+    image:
+      'https://images.unsplash.com/photo-1657299156537-f4bcdced5392?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+  },
+];
 const news = [
 {
   img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg',
-  text:`Lorem ipsum dolor sit amet. Et repudiandae laborum hic quia galisum qui possimus corrupti sit quibusdam commodi et 
-  sint laboriosam nam pariatur fugiat.At corrupti dolores ut amet pariatur ad dolores totam sed blanditiis omnis
-   nam veniam rerum qui nemo velit. Qui facilis sint et quia voluptas ea rerum debitis cum explicabo perferendis a 
-   eligendi laboriosam. 
-  Est odit dicta et illo tempore id reprehenderit error vel molestiae eaque qui amet rerum? `,
+  text:'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
 },
 {
   img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg',
-  text:`Lorem ipsum dolor sit amet. Et repudiandae laborum hic quia galisum qui possimus corrupti sit quibusdam commodi et 
-  sint laboriosam nam pariatur fugiat.At corrupti dolores ut amet pariatur ad dolores totam sed blanditiis omnis
-   nam veniam rerum qui nemo velit. Qui facilis sint et quia voluptas ea rerum debitis cum explicabo perferendis a 
-   eligendi laboriosam. 
-  Est odit dicta et illo tempore id reprehenderit error vel molestiae eaque qui amet rerum? `,
+  text:'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer'
 },
 {
   img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg',
-  text:`Lorem ipsum dolor sit amet. Et repudiandae laborum hic quia galisum qui possimus corrupti sit quibusdam commodi et 
-  sint laboriosam nam pariatur fugiat.At corrupti dolores ut amet pariatur ad dolores totam sed blanditiis omnis
-   nam veniam rerum qui nemo velit. Qui facilis sint et quia voluptas ea rerum debitis cum explicabo perferendis a 
-   eligendi laboriosam. 
-  Est odit dicta et illo tempore id reprehenderit error vel molestiae eaque qui amet rerum? `,
+  text:'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
 },
 {
   img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg',
-  text:`Lorem ipsum dolor sit amet. Et repudiandae laborum hic quia galisum qui possimus corrupti sit quibusdam commodi et 
-  sint laboriosam nam pariatur fugiat.At corrupti dolores ut amet pariatur ad dolores totam sed blanditiis omnis
-   nam veniam rerum qui nemo velit. Qui facilis sint et quia voluptas ea rerum debitis cum explicabo perferendis a 
-   eligendi laboriosam. 
-  Est odit dicta et illo tempore id reprehenderit error vel molestiae eaque qui amet rerum? `,
+  text:'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
 }
 ]
 
@@ -51,34 +58,30 @@ return (
       <div className='Title'>
         <box className='box'>
       <h1>Hola! BienvenidX</h1>
-      {user ? <Link to="/formslide">cambiar titulo</Link> : console.log('not user') }
       </box>
-      <div className='text'>
-        <span>Lorem ipsum dolor sit amet. Et repudiandae laborum hic quia galisum qui possimus corrupti sit quibusdam commodi et 
-          sint laboriosam nam pariatur fugiat. At corrupti dolores ut amet pariatur ad dolores totam sed blanditiis omnis
-           nam veniam rerum qui nemo velit. Qui facilis sint et quia voluptas ea rerum debitis cum explicabo perferendis a 
-           eligendi laboriosam. 
-          Est odit dicta et illo tempore id reprehenderit error vel molestiae eaque qui amet rerum?</span>
       </div>
+      <div>
+      <Slider slides={slides} classes={["w-50"]} />
       </div>
-     
      <div>
    <p className='news-head'>
    Últimas noticias
    </p>
    <div className='containernews'>
-    {
+   {
     news &&
     news.map((e) =>{
-      <div >
-      <p className="text">{e.text}</p>
-      <img src={e.img}  alt= "img news" className="imgnews" />
-      </div>
+    return(
+    < NewsCard
+    img = {e.img}
+    text = {e.text}
+    />
+    )
      })}
      </div>
      </div>
      </div>
-  );
+)
 };
 
 export default Home;
