@@ -1,25 +1,29 @@
+.body{
+  font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+
 .container-title{
   position: absolute;
-width: 567px;
-height: 210px;
-left: 143px;
-top: 260px;
+width: 35rem;
+height: 13rem;
+left: 8rem;
+top: 16rem;
 }
 
 .slider{
-  width: 1300px;
- height: 1300px;
+  width: 81rem;
+ height: 81rem;
   position: absolute;
-  left: 735px;
-  top: 350px;
+  left: 45rem;
+  top: 22rem;
   }
 
 
   .news-head{
 
-    /* Últimas novedades */
-    
-    
     position: absolute;
     width: 308px;
     height: 48px;
@@ -38,6 +42,8 @@ top: 260px;
     text-align: center;
     letter-spacing: -0.015em;
     
+    color: #000000;
+    
     } 
 
    .containernews{
@@ -47,3 +53,112 @@ top: 260px;
       display: flex;
    }
 
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 768px) {
+    .container-title {
+      position: absolute;
+      width: 40rem;
+      height: 40rem;
+      left: 1rem;
+      top: 8rem;
+    }
+
+    .slider{
+      width: 40rem;
+     height: 40rem;
+      position: absolute;
+      left: 30rem;
+      top: 22rem;
+      }
+      .news-head{
+
+        /* Últimas novedades */
+        
+        
+        position: absolute;
+        width: 5rem;
+        height: 3rem;
+        left:1rem;
+        top: 85rem;
+        
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 3rem;
+        /* identical to box height */
+        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: -0.015em;
+        
+        } 
+        .containernews{
+          position: relative;
+            left: 1rem;
+            top: 90rem;
+            display:grid;
+            grid-template-columns: auto auto;
+          }
+
+  }
+  
+
+
+
+
+
+
+
+
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 576px) {
+    .container-title {
+      position: absolute;
+      width: 20rem;
+      height: 20rem;
+      left: -1rem;
+      top: 8rem;
+    }
+
+    .slider{
+   width: 20rem;
+   height: 20prem;
+  position: absolute;
+  left: 15rem;
+  top: 22rem;
+  }
+  .news-head{
+
+    /* Últimas novedades */
+    
+    
+    position: absolute;
+    width: 5rem;
+    height: 3rem;
+    left:1rem;
+    top: 85rem;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 3rem;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+    
+    } 
+    .containernews{
+      position: absolute;
+        left: 1rem;
+        top: 90rem;
+        display: inline;
+      }
+  }

@@ -10,7 +10,7 @@ const NewsCard = (props) => {
  
     return (
    <Container fluid >
-      <Row xs={1} md={8}  className="g-4">
+      <Row xs={2} md={4}  className="g-4">
       {Array.from({ length:1}).map((_, idx) => (
         <Col> 
             {[
