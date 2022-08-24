@@ -1,0 +1,44 @@
+.navbar {
+  box-shadow: 2px 2px 2px 1px rgba(1, 0, 0, 0.2);
+  text-shadow: 0.5px 0.5px !important;
+}
+
+.btn-register {
+  background-color: #a80707 !important;
+  border-color: #a80707 !important;
+  margin-inline: 10px;
+}
+
+.btn-login,
+.btn-register {
+  border-radius: 15px !important;
+  box-shadow: 1px 1px 1px 1px rgba(1, 0, 0, 0.2);
+}
+
+.nav-link {
+  margin-inline: .5em;
+}
+
+.active {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+@media only screen and (max-width: 996px) {
+  .navbar {
+    text-align: center !important;
+  }
+
+  .btn-login,
+  .btn-register {
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+    margin-bottom: 10px;
+  }
+
+  .nav-link {
+    margin-inline: 0;
+    margin-bottom: 5px;
+  }
+}
