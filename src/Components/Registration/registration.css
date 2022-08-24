@@ -1,0 +1,113 @@
+.body{
+    font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+  }
+  
+  .img{
+    position: absolute;
+width: 708px;
+height: 860px;
+left: 890px;
+top: 100px;
+  }
+
+
+
+.welcome{
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    left: 17rem;
+    top: 18rem;
+}
+
+.login{
+
+position: absolute;
+width: 32rem;
+height: 3rem;
+left: 17rem;
+top: 20rem;
+}
+
+
+.loginbody{
+    position: absolute;
+    left: -10rem;
+    top: 390px;
+}
+
+
+.link{
+    color: red;
+ }
+
+  
+
+
+
+
+
+
+
+
+
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (max-width: 768px) {
+  
+ 
+.welcome{
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    left: 15rem;
+    top: 18rem;
+}
+.login{
+
+    position: absolute;
+    width: 32rem;
+    height: 3rem;
+    left: 15rem;
+    top: 20rem;
+    }
+    .loginbody{
+        position: absolute;
+        left: 1rem;
+        top: 390px;
+    }
+    
+
+}
+
+
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 576px) {
+     
+.welcome{
+    position: absolute;
+    width: 6rem;
+    height: 2rem;
+    left: 1rem;
+    top: 18rem;
+}
+.login{
+
+    position: absolute;
+    width: 32rem;
+    height: 3rem;
+    left: 1rem;
+    top: 20rem;
+    }
+    .loginbody{
+        position: absolute;
+        left: 1px;
+        top: 390px;
+    }
+    
+
+  
+  }
