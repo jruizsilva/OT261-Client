@@ -14,7 +14,7 @@ export const activitiesSlice = createSlice({
   name: 'activities',
   initialState: {
     activities: listActivities,
-    active: null,
+    activityToEdit: null,
   },
   reducers: {
     deleteActivity: (state, action) => {
@@ -34,6 +34,19 @@ export const activitiesSlice = createSlice({
         activities: activities.map((activity) =>
           activity.id === activityEdited.id ? activityEdited : activity
         ),
+      };
+    },
+    setActivityToEdit: (state, action) => {
+      const activityToEdit = action.payload;
+      return {
+        ...state,
+        activityToEdit,
+      };
+    },
+    removeActivityToEdit: (state) => {
+      return {
+        ...state,
+        activityToEdit: null,
       };
     },
   },
@@ -72,6 +85,11 @@ export const deleteActivityAsync = (id) => (dispatch) => {
 /* ======================
    Acciones sincronas ↓↓
    ====================== */
-export const { deleteActivity, editActivity } = activitiesSlice.actions;
+export const {
+  deleteActivity,
+  editActivity,
+  setActivityToEdit,
+  removeActivityToEdit,
+} = activitiesSlice.actions;
 
 export default activitiesSlice.reducer;

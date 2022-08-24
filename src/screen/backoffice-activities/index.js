@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Container, Stack, Table, Form, Modal } from 'react-bootstrap';
+import { Button, Container, Stack, Table } from 'react-bootstrap';
 
 import Swal from 'sweetalert2';
 import { StyledContainer } from './styles';
-import { deleteActivityAsync } from '../../store/slice/activities';
+import {
+  deleteActivityAsync,
+  setActivityToEdit,
+  removeActivityToEdit,
+} from '../../store/slice/activities';
+import { ModalEditActivity } from '../../Components/ModalEditActivity/ModalEditActivity';
 
 export const BackofficeActivities = () => {
-  const { activities } = useSelector((state) => state.activities);
+  const { activities, activityToEdit } = useSelector(
+    (state) => state.activities
+  );
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    dispatch(removeActivityToEdit());
+    setShow(false);
+  };
 
   const handleEditClick = (id) => {
-    handleShow();
+    setShow(true);
     const activityToEdit = activities.find((activity) => activity.id === id);
+    dispatch(setActivityToEdit(activityToEdit));
     console.log(activityToEdit);
   };
 
@@ -79,31 +89,9 @@ export const BackofficeActivities = () => {
           </Container>
         </Stack>
       </StyledContainer>
-      <Modal show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar actividad</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label>Titulo</Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Agregue el titulo de la actividad'
-                autoFocus
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button variant='primary' onClick={handleClose}>
-            Guardar cambios
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {activityToEdit && (
+        <ModalEditActivity show={show} handleClose={handleClose} />
+      )}
     </>
   );
 };
