@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { RequireAuth } from './RequireAuth';
 import Backoffice from '../screen/backoffice';
+import { RequireAuth } from './RequireAuth';
+import { RequireAdminRole } from './RequireAdminRole';
+import { BackofficeActivities } from '../screen/backoffice-activities';
 
 export const BackofficeRoutes = () => {
   return (
@@ -12,6 +14,14 @@ export const BackofficeRoutes = () => {
           <RequireAuth>
             <Backoffice />
           </RequireAuth>
+        }
+      />
+      <Route
+        path='activities'
+        element={
+          <RequireAdminRole>
+            <BackofficeActivities />
+          </RequireAdminRole>
         }
       />
     </Routes>
