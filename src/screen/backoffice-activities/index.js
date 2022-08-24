@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Container, Stack, Table } from 'react-bootstrap';
-
+import { LinkContainer } from 'react-router-bootstrap';
+import { Button, Container, Nav, Stack, Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { StyledContainer } from './styles';
 import {
@@ -49,9 +49,16 @@ export const BackofficeActivities = () => {
 
   return (
     <>
-      <StyledContainer className='pt-5'>
+      <StyledContainer className='pt-4'>
         <Stack as='main'>
           <Container>
+            <Nav>
+              <Nav.Item>
+                <LinkContainer to='/backoffice'>
+                  <Nav.Link>Regresar</Nav.Link>
+                </LinkContainer>
+              </Nav.Item>
+            </Nav>
             <h2 className='h2 text-center mb-4'>Lista de actividades</h2>
             <Table striped bordered hover>
               <thead>
