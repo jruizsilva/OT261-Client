@@ -79,7 +79,7 @@ export const deleteActivityAsync = (id) => (dispatch) => {
         Swal.hideLoading();
       },
     });
-  }, 1000);
+  }, 500);
 };
 export const editActivityAsync = (activityEdited) => (dispatch) => {
   Swal.fire({
@@ -105,7 +105,7 @@ export const editActivityAsync = (activityEdited) => (dispatch) => {
         Swal.hideLoading();
       },
     });
-  }, 1000);
+  }, 500);
 };
 
 /* ======================
