@@ -41,7 +41,7 @@ return(
                         </Form>
                     </Col>
                 </Row>
-                <h6 className="mt-5 p-5 text-center text-secondary ">ya tienes cuenta ?<Link to="/" className="link">  Inicia sesión</Link> </h6>
+                <h6 className="mt-5 p-5 text-center text-secondary ">ya tienes cuenta ?<Link to="/login" className="link">  Inicia sesión</Link> </h6>
             </Container>
             </div>
         </>
