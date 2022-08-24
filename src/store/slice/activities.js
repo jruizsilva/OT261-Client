@@ -81,6 +81,32 @@ export const deleteActivityAsync = (id) => (dispatch) => {
     });
   }, 1000);
 };
+export const editActivityAsync = (activityEdited) => (dispatch) => {
+  Swal.fire({
+    title: 'Cargando...',
+    text: 'Por favor espere...',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+  /* ======================
+     Simulo una peticion a un endpoint con setTimeout ↓↓
+     ====================== */
+  setTimeout(() => {
+    dispatch(editActivity(activityEdited));
+    Swal.close();
+    Swal.fire({
+      title: 'Actualizado!',
+      text: 'Actividad modificada con exito.',
+      icon: 'success',
+      didOpen: () => {
+        Swal.hideLoading();
+      },
+    });
+  }, 1000);
+};
 
 /* ======================
    Acciones sincronas ↓↓

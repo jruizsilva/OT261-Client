@@ -1,17 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Modal, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
+import { editActivityAsync } from '../../store/slice/activities';
 
 export const ModalEditActivity = ({ show, handleClose }) => {
   const { activityToEdit } = useSelector((state) => state.activities);
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
       title: activityToEdit.title,
     },
     onSubmit: () => {
-      console.log(formik.values);
+      const activityEdited = { ...formik.values, id: activityToEdit.id };
+      dispatch(editActivityAsync(activityEdited));
     },
   });
   return (
