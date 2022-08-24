@@ -3,11 +3,7 @@ import { Stack } from 'react-bootstrap';
 
 const StyledContainer = styled(Stack)`
   background-color: #edf2f7;
-  min-height: 100vh;
-`;
-const StyledHeader = styled(Stack)`
-  height: 60px;
-  background-color: #fff;
+  min-height: calc(100vh - 6.25rem);
 `;
 
-export { StyledContainer, StyledHeader };
+export { StyledContainer };
