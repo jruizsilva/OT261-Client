@@ -29,7 +29,6 @@ export const BackofficeActivities = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteActivityAsync(id));
-        Swal.fire('Borrado!', 'Actividad borrada con exito.', 'success');
       }
     });
   };

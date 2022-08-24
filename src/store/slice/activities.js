@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 
 /* ======================
    HARDCODEO las actividades ↓↓ (deberia venir de la db)
@@ -42,7 +43,30 @@ export const activitiesSlice = createSlice({
    Acciones asincronas ↓↓
    ====================== */
 export const deleteActivityAsync = (id) => (dispatch) => {
-  dispatch(deleteActivity(id));
+  Swal.fire({
+    title: 'Cargando...',
+    text: 'Por favor espere...',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+  /* ======================
+     Simulo una peticion a un endpoint con setTimeout ↓↓
+     ====================== */
+  setTimeout(() => {
+    dispatch(deleteActivity(id));
+    Swal.close();
+    Swal.fire({
+      title: 'Borrado!',
+      text: 'Actividad borrada con exito.',
+      icon: 'success',
+      didOpen: () => {
+        Swal.hideLoading();
+      },
+    });
+  }, 1000);
 };
 
 /* ======================
