@@ -1,22 +1,24 @@
 import React from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import { Link } from 'react-router-dom';
-
 import './login.css'
+import { Body, Welcome, Log,Img} from "./styledcomponent/loginstyled";
 
 const img = {
     img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg'
 }
 
+
 const Login = () =>{
 
 return(
 
-<>        
-  <div className="body">
-     <img src={img.img} className='img'/>
-        <h2 className="welcome">Bienvenido</h2>
-            <h1 className="login">Inicia sesión en tu cuenta!</h1>
+<>   
+ <Body>
+    
+     <Img src={img.img} className='img'/>
+          <Welcome>Bienvenido</Welcome>
+          <Log>Inicia sesión en tu cuenta!</Log>
             <Container className="loginbody">
                 <Row className="mt-5">
                     <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
@@ -38,9 +40,9 @@ return(
                         </Form>
                     </Col>
                 </Row>
-                <h6 className="mt-5 p-5 text-center text-secondary ">No tienes cuenta ?<Link to="/register" className="link">Registrate</Link> </h6>
+                <h6 className="mt-5 p-5 text-center text-secondary ">No tienes cuenta ?<Link to="/register" style={{color:'red'}}>Registrate</Link> </h6>
             </Container>
-            </div>
+            </Body>
         </>
 
 )
