@@ -18,7 +18,7 @@ const NavBar = () => {
       <Navbar.Brand className="ms-3 p-0">
         <img
           src="https://res.cloudinary.com/dwtkwakbc/image/upload/v1660770518/LOGO-SOMOS_MAS_uyr5wi.png"
-          width="130"
+          width="100"
           height="100"
           alt="logo"
         />
