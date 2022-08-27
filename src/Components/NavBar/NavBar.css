@@ -24,7 +24,7 @@
   border-bottom-style: solid;
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (max-width: 991px) {
   .navbar {
     text-align: center !important;
   }
@@ -37,8 +37,18 @@
     margin-bottom: 10px;
   }
 
-  .nav-link {
+  .btn-login {
+    margin-top: 20px
+  }
+
+  .navbar-nav .nav-link {
     margin-inline: 0;
     margin-bottom: 5px;
+    padding-block: 5px;
+    
+  }
+
+  .navbar-toggler {
+    margin-right: 20px;
   }
 }
