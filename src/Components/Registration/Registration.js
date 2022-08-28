@@ -1,49 +1,56 @@
-import React from "react";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import React, { useState } from 'react';
+import {Button, Form,} from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import { Body, Welcome, Log,Img} from "./styledregister/registrerstyled";
-import "./registration.css"
-
-const img = {
-    img:'https://cdn.pixabay.com/photo/2021/03/12/08/51/shorturl-6089108_960_720.jpg'
-}
+import { Body, Welcome, Log,Container,FormInputRow,FormLabel,FormInput,FormRow} from "../login/styledcomponent/loginstyled";
+import { Img } from "./styledregister/registrerstyled";
+import {img} from '../login/const'
 
 const Registration = () =>{
+
+    const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+    
+	const formData = [
+		{ label: 'nombre', value: name, onChange: (e) => setName(e.target.value), type: 'text' },
+		{ label: 'Email', value: email, onChange: (e) => setEmail(e.target.value), type: 'email' },
+		{
+			label: 'Contraseña',
+			value: password,
+			onChange: (e) => setPassword(e.target.value),
+			type: 'password',
+		},
+    ]
 
 return(
 
 <>        
 <Body>
     
-    <Img src={img.img} className='img'/>
+    <Img src={img.img}  alt="Imagen Bienvenida"/>
          <Welcome>Bienvenido</Welcome>
          <Log>Regístrate!</Log>
-           <Container className="loginbody">
-               <Row className="mt-5">
-                   <Col lg={5} md={6} sm={12} className="p-5 m-auto shadow-sm rounded-lg">
+           <Container>
+              <FormRow>
                        <Form>
-                       <Form.Group controlId="formBasicEmail">
-                               <Form.Label>Nombre</Form.Label>
-                               <Form.Control type="name" placeholder="nombre" />
-                           </Form.Group>
-                           
-                           <Form.Group controlId="formBasicEmail">
-                               <Form.Label>Email</Form.Label>
-                               <Form.Control type="email" placeholder="email" />
-                           </Form.Group>
-
-                           <Form.Group controlId="formBasicPassword">
-                               <Form.Label>Password</Form.Label>
-                               <Form.Control type="password" placeholder="Password" />
-                           </Form.Group>
+                       {formData.map((el, index) => (
+								<FormInputRow key={index}>
+									<FormLabel>{el.label}</FormLabel>
+									<FormInput
+										type={el.type}
+										placeholder={`${el.label.toLocaleLowerCase()}`}
+										value={el.value}
+										onChange={el.onChange}
+									/>
+								</FormInputRow>
+							))}
                            <div className="d-grid gap-2">
-                          <Button variant="danger" size="lg">
+                          <Button variant="danger" size="lg" type="submit">
                           Registrarse
                           </Button>
                           </div>
                        </Form>
-                   </Col>
-               </Row>
+                       </FormRow>
                <h6 className="mt-5 p-5 text-center text-secondary ">Ya tienes cuenta ?<Link to='/login' style={{color:'red'}}>Inicia sesión</Link> </h6>
            </Container>
            </Body>

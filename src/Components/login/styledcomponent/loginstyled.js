@@ -75,3 +75,80 @@ top: 100px;
 
 `
 
+export const Container = styled.div`
+
+width: 100%;
+	max-width: 1300px;
+	margin: ${({ margin }) => (margin ? margin : '0 auto')};
+	padding: ${({ padding }) => (padding ? padding : '0 15px')};
+    position: absolute;
+    left: -10rem;
+    top: 390px;
+
+    @media (max-width: 768px) {
+  
+        position: absolute;
+        left: 1rem;
+        top: 390px;
+    }
+
+/* Small devices (landscape phones, 576px and up) */
+  @media (max-width: 576px) {
+     
+        position: absolute;
+        left: 1px;
+        top: 390px;
+    
+`
+
+export const FormInputRow = styled.div`
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: stretch;
+	margin-bottom: 1.4rem;
+	> p {
+		font-size: 0.8rem;
+		margin-top: 0.5rem;
+		color: #f00e0e;
+	}
+`;
+
+export const FormInput = styled.input`
+	display: block;
+	padding-left: 10px;
+	outline: none;
+	border-radius: 2px;
+	width: 451px;
+    height: 56px;
+	border: none;
+	border-bottom: 1px solid #cfcfcf;
+	font-size: 1rem;
+    @media (max-width: 768px) {
+        height: 40px;
+        width: 100%;
+      
+    }
+    @media (max-width: 576px) {
+        
+            width: 6rem;
+            height: 2rem;
+       
+        }
+`;
+
+
+export const FormLabel = styled.label`
+	display: inline-block;
+	font-size: 0.9rem;
+	margin-bottom: 0.3rem;
+	color: #afafaf;
+`;
+
+export const FormRow = styled.div`
+	display: flex;
+	justify-content: center;
+	margin: 0 -15px -15px -15px;
+	flex-wrap: wrap;
+	align-items: center;
+`;
