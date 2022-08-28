@@ -1,32 +1,65 @@
-import React, { useState } from 'react';
-import '../FormStyles.css';
+import { useState } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "../FormStyles.css";
 
 const ActivitiesForm = () => {
-    const [initialValues, setInitialValues] = useState({
-        name: '',
-        description: ''
-    });
+  const [initialValues, setInitialValues] = useState({
+    name: "",
+    description: "",
+  });
 
-    const handleChange = (e) => {
-        if(e.target.name === 'name'){
-            setInitialValues({...initialValues, name: e.target.value})
-        } if(e.target.name === 'description'){
-            setInitialValues({...initialValues, description: e.target.value})
-        }
+  const handleChange = (e) => {
+    if (e.target.name === "name") {
+      setInitialValues({ ...initialValues, name: e.target.value });
     }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(initialValues);
-    }
-    
-    return (
-        <form className="form-container" onSubmit={handleSubmit}>
-            <input className="input-field" type="text" name="name" value={initialValues.name} onChange={handleChange} placeholder="Activity Title"></input>
-            <input className="input-field" type="text" name="description" value={initialValues.description} onChange={handleChange} placeholder="Write some activity description"></input>
-            <button className="submit-btn" type="submit">Send</button>
-        </form>
-    );
-}
- 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(initialValues);
+  };
+
+  return (
+    <Form onSubmit={handleSubmit} className="form-container">
+      <Form.Group className="mb-3" controlId="formBasicName">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          className="input-field"
+          type="text"
+          name="name"
+          placeholder="Activity Title"
+          value={initialValues.name}
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicContent">
+        <Form.Label>Content</Form.Label>
+        <CKEditor
+          editor={ClassicEditor}
+          className="input-field"
+          type="text"
+          name="description"
+          placeholder="Write some activity description!"
+          value={initialValues.description}
+          onChange={(e, editor) => {
+            const data = editor.getData();
+
+            setInitialValues({
+              ...initialValues,
+              description: data,
+            });
+          }}
+        />
+      </Form.Group>
+      <Button variant="primary" className="submit-btn" type="submit">
+        Send
+      </Button>
+    </Form>
+  );
+};
+
 export default ActivitiesForm;
