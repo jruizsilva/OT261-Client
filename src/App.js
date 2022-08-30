@@ -1,3 +1,5 @@
+import { Container } from 'react-bootstrap';
+
 import NavBar from './Components/NavBar/NavBar';
 import Routing from './router';
 
@@ -8,7 +10,9 @@ function App() {
   return (
     <>
       <NavBar />
-      <Routing />
+      <Container fluid>
+        <Routing />
+      </Container>
     </>
   );
 }
