@@ -1,112 +1,127 @@
-import { createSlice } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
+import { createSlice } from '@reduxjs/toolkit'
+import Swal from 'sweetalert2'
 
 /* ======================
    HARDCODEO las actividades ↓↓ (deberia venir de la db)
    ====================== */
 const listActivities = [
-  { id: 1, title: 'Correr' },
-  { id: 2, title: 'Nadar' },
-  { id: 3, title: 'Futbol' },
-];
+  {
+    id: 1,
+    title: 'Actividad 1',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nihil doloribus qui assumenda facere voluptatibus voluptate sapiente vel et voluptatum. 1'
+  },
+  {
+    id: 2,
+    title: 'Actividad 2',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nihil doloribus qui assumenda facere voluptatibus voluptate sapiente vel et voluptatum. 2'
+  },
+  {
+    id: 3,
+    title: 'Actividad 3',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nihil doloribus qui assumenda facere voluptatibus voluptate sapiente vel et voluptatum. 3'
+  }
+]
 
 export const activitiesSlice = createSlice({
   name: 'activities',
   initialState: {
     activities: listActivities,
-    activityToEdit: null,
+    activityToEdit: null
   },
   reducers: {
     deleteActivity: (state, action) => {
-      const { activities } = state;
+      const { activities } = state
       return {
         ...state,
         activities: activities.filter(
-          (activity) => activity.id !== action.payload
-        ),
-      };
+          activity => activity.id !== action.payload
+        )
+      }
     },
     editActivity: (state, action) => {
-      const activityEdited = action.payload;
-      const { activities } = state;
+      const activityEdited = action.payload
+      const { activities } = state
       return {
         ...state,
-        activities: activities.map((activity) =>
+        activities: activities.map(activity =>
           activity.id === activityEdited.id ? activityEdited : activity
-        ),
-      };
+        )
+      }
     },
     setActivityToEdit: (state, action) => {
-      const activityToEdit = action.payload;
+      const activityToEdit = action.payload
       return {
         ...state,
-        activityToEdit,
-      };
+        activityToEdit
+      }
     },
-    removeActivityToEdit: (state) => {
+    removeActivityToEdit: state => {
       return {
         ...state,
-        activityToEdit: null,
-      };
-    },
-  },
-});
+        activityToEdit: null
+      }
+    }
+  }
+})
 
 /* ======================
    Acciones asincronas ↓↓
    ====================== */
-export const deleteActivityAsync = (id) => (dispatch) => {
+export const deleteActivityAsync = id => dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
-      Swal.showLoading();
-    },
-  });
+      Swal.showLoading()
+    }
+  })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
      ====================== */
   setTimeout(() => {
-    dispatch(deleteActivity(id));
-    Swal.close();
+    dispatch(deleteActivity(id))
+    Swal.close()
     Swal.fire({
       title: 'Borrado!',
       text: 'Actividad borrada con exito.',
       icon: 'success',
       didOpen: () => {
-        Swal.hideLoading();
-      },
-    });
-  }, 500);
-};
-export const editActivityAsync = (activityEdited) => (dispatch) => {
+        Swal.hideLoading()
+      }
+    })
+  }, 500)
+}
+export const editActivityAsync = activityEdited => dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
-      Swal.showLoading();
-    },
-  });
+      Swal.showLoading()
+    }
+  })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
      ====================== */
   setTimeout(() => {
-    dispatch(editActivity(activityEdited));
-    Swal.close();
+    dispatch(editActivity(activityEdited))
+    Swal.close()
     Swal.fire({
       title: 'Actualizado!',
       text: 'Actividad modificada con exito.',
       icon: 'success',
       didOpen: () => {
-        Swal.hideLoading();
-      },
-    });
-  }, 500);
-};
+        Swal.hideLoading()
+      }
+    })
+  }, 500)
+}
 
 /* ======================
    Acciones sincronas ↓↓
@@ -115,7 +130,7 @@ export const {
   deleteActivity,
   editActivity,
   setActivityToEdit,
-  removeActivityToEdit,
-} = activitiesSlice.actions;
+  removeActivityToEdit
+} = activitiesSlice.actions
 
-export default activitiesSlice.reducer;
+export default activitiesSlice.reducer
