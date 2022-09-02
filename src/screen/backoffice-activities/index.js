@@ -22,7 +22,6 @@ export const BackofficeActivities = () => {
   const { activities, activityToEdit } = useSelector(
     (state) => state.activities
   );
-  console.log(activities);
 
   const dispatch = useDispatch();
 
@@ -43,7 +42,6 @@ export const BackofficeActivities = () => {
 
     const activityToEdit = activities.find((activity) => activity.id === id);
     dispatch(setActivityToEdit(activityToEdit));
-    // console.log(activityToEdit);
   };
   console.log(openEditModal);
   const handleDeleteClick = (id) => {

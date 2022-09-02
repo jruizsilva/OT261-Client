@@ -24,7 +24,6 @@ const ActivitiesForm = ({ onClose, openCreateModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(initialValues);
     onClose();
     dispatch(createActivity(initialValues));
   };
