@@ -10,6 +10,28 @@ const Login = () =>{
 
 const formData = [
 		{ label: 'email', type: 'email' },{label: 'password',type: 'password',},]
+
+const formvalidate = (valores) => {
+    let errors = {};
+
+    // Validacion nombre
+    if(!valores.password){
+        errors.password = 'Por favor ingresa un password'
+    }else if(valores.password.length < 6 ){
+        errors.password = 'La Contraseña debe tener al menos 6 caracteres.'
+    }
+
+    // Validacion correo
+    if(!valores.email){
+        errors.email = 'Por favor ingresa un correo electronico'
+    } else if( !emailtest.test(valores.email)){
+        errors.email = 'Ingrese un correo con formato valido.'
+    }
+
+    return errors;
+}
+
+
 return(
 
 <>   
@@ -24,29 +46,9 @@ return(
                         initialValues={{
                         email: '',
                         password: ''}}
-                       
-                       
-                        validate={(valores) => {
-                            let errors = {};
-        
-                            // Validacion nombre
-                            if(!valores.password){
-                                errors.password = 'Por favor ingresa un password'
-                            }else if(valores.password.length < 6 ){
-                                errors.password = 'La Contraseña debe tener al menos 6 caracteres.'
-                            }
-        
-                            // Validacion correo
-                            if(!valores.email){
-                                errors.email = 'Por favor ingresa un correo electronico'
-                            } else if( !emailtest.test(valores.email)){
-                                errors.email = 'Ingrese un correo con formato valido.'
-                            }
-        
-                            return errors;
-                        }}
-                        onSubmit={(valores) =>{
-                           console.log(valores)
+                      validate={(valores) => formvalidate(valores)}
+                      onSubmit={(valores) =>{
+                        console.log(valores)
                      }}
                      
                      >
@@ -54,19 +56,19 @@ return(
 
                       {(  {values, handleSubmit,handleChange,handleBlur ,errors, touched, } ) => ( 
                         <Form onSubmit={handleSubmit}>
-                        {formData.map((el, index) => (
-								<FormInputRow key={index}>
-									<FormLabel>{el.label}</FormLabel>
+                        {formData.map((data, id) => (
+								<FormInputRow key={id}>
+									<FormLabel>{data.label}</FormLabel>
 									<FormInput
-										type={el.type}
-										placeholder={`${el.label.toLocaleLowerCase()}`}
-										value={values[el.label]}
-                                        id={el.label}
-                                        name={el.label}
+										type={data.type}
+										placeholder={`${data.label.toLocaleLowerCase()}`}
+										value={values[data.label]}
+                                        id={data.label}
+                                        name={data.label}
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         />
-                           {touched[el.label] && errors[el.label] && <ErrorMessage >{errors[el.label]}</ErrorMessage >}
+                           {touched[data.label] && errors[data.label] && <ErrorMessage >{errors[data.label]}</ErrorMessage >}
 								</FormInputRow>
 							))}
                             <div className="d-grid gap-2">
