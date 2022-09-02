@@ -17,18 +17,6 @@
   --font-poppins: 'Poppins', sans-serif;
   --font-mulish: 'Mulish', sans-serif;
 }
-/* Opcional */
-/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
-/* Opcional */
-/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    -webkit-animation: none !important;
-    animation: none !important;
-    -webkit-transition: none !important;
-    transition: none !important;
-  }
-}
 /* Reseteamos los margin y paddings de todas las etiquetas */
 * {
   margin: 0;
@@ -54,19 +42,6 @@ figure {
   /* opcional */
   -o-object-position: center center;
   object-position: center center;
-}
-
-/* Reseteamos los enlaces para funcionar como cajas... */
-a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  font-size: inherit;
-}
-
-/* ... excepto los que se encuentran en párrafos */
-p a {
-  display: inline;
 }
 
 /* Quitamos los puntos de los <li> */
@@ -111,12 +86,6 @@ q:after {
   content: none;
 }
 
-/* Configuramos el texto que seleccionamos */
-::-moz-selection {
-}
-::selection {
-}
-
 /* Nivelamos problemas de tipografías y colocación de formularios */
 form,
 input,
@@ -152,12 +121,6 @@ svg {
   display: block;
   fill: currentColor;
 }
-
-/* (Probándolo, no usar en producción) En el caso de añadir una  */
-/* p svg{
-  display: inline;
-  width: initial;
-} */
 /* Configuramos la tipografía para toda la web */
 body {
   min-height: 100vh;
