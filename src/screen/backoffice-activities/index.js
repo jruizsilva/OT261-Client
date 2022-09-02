@@ -15,30 +15,37 @@ import {
   removeActivityToEdit,
 } from "../../store/slice/activities";
 import { ModalEditActivity } from "../../Components/ModalEditActivity/ModalEditActivity";
-import ActivitiesCreatorModal from "../../Components/Activities/activity creator/ActivitiesCreatorModal";
+import ActivitiesModal from "../../Components/Activities/activitiesModal/ActivitiesModal";
+import ActivitiesForm from "../../Components/Activities/ActivitiesForm";
 
 export const BackofficeActivities = () => {
   const { activities, activityToEdit } = useSelector(
     (state) => state.activities
   );
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const closeModal = () => {
-    setOpenModal(false);
-  };
-  const handleClose = () => {
-    dispatch(removeActivityToEdit());
-    setShow(false);
-  };
+  console.log(activities);
 
+  const dispatch = useDispatch();
+
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [openEditModal, setOpenEditModal] = useState(false);
+
+  //hadleing modal state
+  const closeModal = () => {
+    openCreateModal ? setOpenCreateModal(false) : setOpenEditModal(false);
+  };
+  /*   const handleClose = () => {
+    dispatch(removeActivityToEdit());
+    setOpenEditModal(false);
+  };
+ */
   const handleEditClick = (id) => {
-    setShow(true);
+    setOpenEditModal(true);
+
     const activityToEdit = activities.find((activity) => activity.id === id);
     dispatch(setActivityToEdit(activityToEdit));
-    console.log(activityToEdit);
+    // console.log(activityToEdit);
   };
-
+  console.log(openEditModal);
   const handleDeleteClick = (id) => {
     Swal.fire({
       title: "¿Estas seguro?",
@@ -72,7 +79,7 @@ export const BackofficeActivities = () => {
               <ActivitiyTitle ActivitiyTitle>
                 Lista de actividades
               </ActivitiyTitle>
-              <ButtonItem onClick={() => setOpenModal(true)}>
+              <ButtonItem onClick={() => setOpenCreateModal(true)}>
                 Crear Actividad
               </ButtonItem>
             </TitleGroup>
@@ -85,22 +92,22 @@ export const BackofficeActivities = () => {
                 </tr>
               </thead>
               <tbody>
-                {activities.map(({ id, title }) => (
-                  <tr key={id}>
-                    <td className="text-center">{id}</td>
-                    <td className="text-center">{title}</td>
+                {activities.map((activity) => (
+                  <tr key={activity.id}>
+                    <td className="text-center">{activity.id}</td>
+                    <td className="text-center">{activity.name}</td>
                     <td className="text-center d-flex justify-content-center gap-2 ">
                       <Button
                         variant="warning"
                         size="sm"
-                        onClick={() => handleEditClick(id)}
+                        onClick={() => handleEditClick(activity.id)}
                       >
                         Editar
                       </Button>
                       <Button
                         variant="danger"
                         size="sm"
-                        onClick={() => handleDeleteClick(id)}
+                        onClick={() => handleDeleteClick(activity.id)}
                       >
                         Eliminar
                       </Button>
@@ -112,11 +119,14 @@ export const BackofficeActivities = () => {
           </Container>
         </Stack>
       </StyledContainer>
-      {openModal && (
-        <ActivitiesCreatorModal open={openModal} onClose={closeModal} />
+      {openCreateModal && (
+        <ActivitiesForm
+          openCreateModal={openCreateModal}
+          onClose={closeModal}
+        />
       )}
       {activityToEdit && (
-        <ModalEditActivity show={show} handleClose={handleClose} />
+        <ModalEditActivity openEditModal={openEditModal} onClose={closeModal} />
       )}
     </>
   );
