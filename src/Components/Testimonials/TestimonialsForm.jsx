@@ -1,32 +1,57 @@
-import React, { useState } from 'react';
-import '../FormStyles.css';
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import "../FormStyles.css";
+
+const validationSchema = Yup.object({
+  name: Yup.string().required("name must be provided"),
+  description: Yup.string().required("description must be provided"),
+});
+
+const onSubmit = () => {
+  console.log(`submitted!`);
+};
 
 const TestimonialForm = () => {
-    const [initialValues, setInitialValues] = useState({
-       name: '',
-       description: '' 
+  const { values, errors, handleChange, handleSubmit, setFieldValue } =
+    useFormik({
+      initialValues: {
+        name: "",
+        description: "",
+      },
+      validationSchema,
+      onSubmit,
     });
+  console.log(errors);
+  const inputHandler = (event, editor) => {
+    // console.log(event);
+    setFieldValue("description", editor.getData());
+  };
+  return (
+    <form className="form-container" onSubmit={handleSubmit}>
+      <label htmlFor="name">name</label>
+      <input
+        value={values.name}
+        onChange={handleChange}
+        id="name"
+        type="name"
+        placeholder="Enter your name"
+      />
+      <label htmlFor="description">description</label>
+      <CKEditor
+        className="inputText"
+        editor={ClassicEditor}
+        onChange={inputHandler}
+        id="description"
+        type="description"
+        placeholder="Enter your description"
+      />
+      <button className="submit-btn" type="submit">
+        Send
+      </button>
+    </form>
+  );
+};
 
-    const handleChange = (e) => {
-        if(e.target.name === 'name'){
-            setInitialValues({...initialValues, name: e.target.value})
-        } if(e.target.name === 'description'){
-            setInitialValues({...initialValues, description: e.target.value})
-        }
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(initialValues);
-    }
-
-    return (
-        <form className="form-container" onSubmit={handleSubmit}>
-            <input className="input-field" type="text" name="name" value={initialValues.name} onChange={handleChange} placeholder="Testimonial Title"></input>
-            <input className="input-field" type="text" name="description" value={initialValues.description} onChange={handleChange} placeholder="Testimonial description"></input>
-            <button className="submit-btn" type="submit">Send</button>
-        </form>
-    );
-}
- 
 export default TestimonialForm;
