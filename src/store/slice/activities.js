@@ -1,19 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-
+import { createSlice } from "@reduxjs/toolkit";
+import Swal from "sweetalert2";
+import { activitiesMock } from "../../Components/Activities/ActivitiesList";
+// console.log(activitiesMock);
 /* ======================
    HARDCODEO las actividades ↓↓ (deberia venir de la db)
    ====================== */
-const listActivities = [
-  { id: 1, title: 'Correr' },
-  { id: 2, title: 'Nadar' },
-  { id: 3, title: 'Futbol' },
-];
+/* const listActivities = [
+  { id: 1, title: "Correr" },
+  { id: 2, title: "Nadar" },
+  { id: 3, title: "Futbol" },
+]; */
 
 export const activitiesSlice = createSlice({
-  name: 'activities',
+  name: "activities",
   initialState: {
-    activities: listActivities,
+    activities: activitiesMock,
     activityToEdit: null,
   },
   reducers: {
@@ -49,6 +50,13 @@ export const activitiesSlice = createSlice({
         activityToEdit: null,
       };
     },
+    createActivity: (state, action) => {
+      console.log(action.payload);
+      return {
+        ...state,
+        activities: state.activities.concat(action.payload),
+      };
+    },
   },
 });
 
@@ -57,8 +65,8 @@ export const activitiesSlice = createSlice({
    ====================== */
 export const deleteActivityAsync = (id) => (dispatch) => {
   Swal.fire({
-    title: 'Cargando...',
-    text: 'Por favor espere...',
+    title: "Cargando...",
+    text: "Por favor espere...",
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
@@ -72,9 +80,9 @@ export const deleteActivityAsync = (id) => (dispatch) => {
     dispatch(deleteActivity(id));
     Swal.close();
     Swal.fire({
-      title: 'Borrado!',
-      text: 'Actividad borrada con exito.',
-      icon: 'success',
+      title: "Borrado!",
+      text: "Actividad borrada con exito.",
+      icon: "success",
       didOpen: () => {
         Swal.hideLoading();
       },
@@ -83,8 +91,8 @@ export const deleteActivityAsync = (id) => (dispatch) => {
 };
 export const editActivityAsync = (activityEdited) => (dispatch) => {
   Swal.fire({
-    title: 'Cargando...',
-    text: 'Por favor espere...',
+    title: "Cargando...",
+    text: "Por favor espere...",
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
@@ -98,9 +106,9 @@ export const editActivityAsync = (activityEdited) => (dispatch) => {
     dispatch(editActivity(activityEdited));
     Swal.close();
     Swal.fire({
-      title: 'Actualizado!',
-      text: 'Actividad modificada con exito.',
-      icon: 'success',
+      title: "Actualizado!",
+      text: "Actividad modificada con exito.",
+      icon: "success",
       didOpen: () => {
         Swal.hideLoading();
       },
@@ -116,6 +124,7 @@ export const {
   editActivity,
   setActivityToEdit,
   removeActivityToEdit,
+  createActivity,
 } = activitiesSlice.actions;
 
 export default activitiesSlice.reducer;
