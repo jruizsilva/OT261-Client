@@ -6,7 +6,7 @@ export const activitiesSlice = createSlice({
   name: 'activities',
   initialState: {
     activities: listActivities,
-    activityToEdit: null
+    activityToEdit: null,
   },
   reducers: {
     deleteActivity: (state, action) => {
@@ -15,7 +15,7 @@ export const activitiesSlice = createSlice({
         ...state,
         activities: activities.filter(
           activity => activity.id !== action.payload
-        )
+        ),
       }
     },
     editActivity: (state, action) => {
@@ -25,23 +25,30 @@ export const activitiesSlice = createSlice({
         ...state,
         activities: activities.map(activity =>
           activity.id === activityEdited.id ? activityEdited : activity
-        )
+        ),
       }
     },
     setActivityToEdit: (state, action) => {
       const activityToEdit = action.payload
       return {
         ...state,
-        activityToEdit
+        activityToEdit,
       }
     },
     removeActivityToEdit: state => {
       return {
         ...state,
-        activityToEdit: null
+        activityToEdit: null,
       }
-    }
-  }
+    },
+    createActivity: (state, action) => {
+      console.log(action.payload)
+      return {
+        ...state,
+        activities: state.activities.concat(action.payload),
+      }
+    },
+  },
 })
 
 /* ======================
@@ -55,7 +62,7 @@ export const deleteActivityAsync = id => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    }
+    },
   })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
@@ -69,7 +76,7 @@ export const deleteActivityAsync = id => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      }
+      },
     })
   }, 500)
 }
@@ -81,7 +88,7 @@ export const editActivityAsync = activityEdited => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    }
+    },
   })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
@@ -95,7 +102,7 @@ export const editActivityAsync = activityEdited => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      }
+      },
     })
   }, 500)
 }
@@ -107,7 +114,8 @@ export const {
   deleteActivity,
   editActivity,
   setActivityToEdit,
-  removeActivityToEdit
+  removeActivityToEdit,
+  createActivity,
 } = activitiesSlice.actions
 
 export default activitiesSlice.reducer

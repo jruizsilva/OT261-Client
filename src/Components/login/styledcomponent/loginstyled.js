@@ -106,7 +106,7 @@ export const FormInputRow = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: stretch;
-	margin-bottom: 1.4rem;
+
 	> p {
 		font-size: 0.8rem;
 		margin-top: 0.5rem;
@@ -122,7 +122,6 @@ export const FormInput = styled.input`
 	width: 451px;
     height: 56px;
 	border: none;
-	border-bottom: 1px solid #cfcfcf;
 	font-size: 1rem;
     @media (max-width: 768px) {
         height: 40px;
@@ -152,3 +151,8 @@ export const FormRow = styled.div`
 	flex-wrap: wrap;
 	align-items: center;
 `;
+
+export const ErrorMessage = styled.div`
+
+color:red
+`
