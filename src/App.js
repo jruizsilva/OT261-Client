@@ -1,10 +1,9 @@
-import { Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap'
 
-import NavBar from './Components/NavBar/NavBar';
-import Routing from './router';
+import NavBar from './Components/NavBar/NavBar'
+import Routing from './router'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.css'
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
         <Routing />
       </Container>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
