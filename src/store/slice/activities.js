@@ -1,14 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import Swal from 'sweetalert2';
-
-/* ======================
-   HARDCODEO las actividades ↓↓ (deberia venir de la db)
-   ====================== */
-const listActivities = [
-  { id: 1, title: 'Correr' },
-  { id: 2, title: 'Nadar' },
-  { id: 3, title: 'Futbol' },
-];
+import { createSlice } from '@reduxjs/toolkit'
+import Swal from 'sweetalert2'
+import { listActivities } from './const'
 
 export const activitiesSlice = createSlice({
   name: 'activities',
@@ -18,95 +10,102 @@ export const activitiesSlice = createSlice({
   },
   reducers: {
     deleteActivity: (state, action) => {
-      const { activities } = state;
+      const { activities } = state
       return {
         ...state,
         activities: activities.filter(
-          (activity) => activity.id !== action.payload
+          activity => activity.id !== action.payload
         ),
-      };
+      }
     },
     editActivity: (state, action) => {
-      const activityEdited = action.payload;
-      const { activities } = state;
+      const activityEdited = action.payload
+      const { activities } = state
       return {
         ...state,
-        activities: activities.map((activity) =>
+        activities: activities.map(activity =>
           activity.id === activityEdited.id ? activityEdited : activity
         ),
-      };
+      }
     },
     setActivityToEdit: (state, action) => {
-      const activityToEdit = action.payload;
+      const activityToEdit = action.payload
       return {
         ...state,
         activityToEdit,
-      };
+      }
     },
-    removeActivityToEdit: (state) => {
+    removeActivityToEdit: state => {
       return {
         ...state,
         activityToEdit: null,
-      };
+      }
+    },
+    createActivity: (state, action) => {
+      console.log(action.payload)
+      return {
+        ...state,
+        activities: state.activities.concat(action.payload),
+      }
     },
   },
-});
+})
 
 /* ======================
    Acciones asincronas ↓↓
    ====================== */
-export const deleteActivityAsync = (id) => (dispatch) => {
+export const deleteActivityAsync = id => dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
-      Swal.showLoading();
+      Swal.showLoading()
     },
-  });
+  })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
      ====================== */
   setTimeout(() => {
-    dispatch(deleteActivity(id));
-    Swal.close();
+    dispatch(deleteActivity(id))
+    Swal.close()
     Swal.fire({
       title: 'Borrado!',
       text: 'Actividad borrada con exito.',
       icon: 'success',
       didOpen: () => {
-        Swal.hideLoading();
+        Swal.hideLoading()
       },
-    });
-  }, 500);
-};
-export const editActivityAsync = (activityEdited) => (dispatch) => {
+    })
+  }, 500)
+}
+export const editActivityAsync = activityEdited => dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
     allowEscapeKey: false,
     allowOutsideClick: false,
     didOpen: () => {
-      Swal.showLoading();
+      Swal.showLoading()
     },
-  });
+  })
   /* ======================
      Simulo una peticion a un endpoint con setTimeout ↓↓
      ====================== */
   setTimeout(() => {
-    dispatch(editActivity(activityEdited));
-    Swal.close();
+    dispatch(editActivity(activityEdited))
+    Swal.close()
     Swal.fire({
       title: 'Actualizado!',
       text: 'Actividad modificada con exito.',
       icon: 'success',
       didOpen: () => {
-        Swal.hideLoading();
+        Swal.hideLoading()
       },
-    });
-  }, 500);
-};
+    })
+  }, 500)
+}
 
 /* ======================
    Acciones sincronas ↓↓
@@ -116,6 +115,7 @@ export const {
   editActivity,
   setActivityToEdit,
   removeActivityToEdit,
-} = activitiesSlice.actions;
+  createActivity,
+} = activitiesSlice.actions
 
-export default activitiesSlice.reducer;
+export default activitiesSlice.reducer
