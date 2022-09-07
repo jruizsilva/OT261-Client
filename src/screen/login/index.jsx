@@ -1,32 +1,33 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { useCurrentWidth } from '../../hooks/useCurrentWidth'
+import { useCurrentWidth, useMobile } from '../../hooks'
 import {
   StackContainer,
   StyledWelcomeText,
   StyledTitle,
   StyledText,
-  StyledWrapper,
+  StyledFormContainer,
   StyledRegisterText,
   StyledForm,
   StyledInput,
   StyledButton,
+  StyledImage,
+  StyledImageContainer,
 } from './styles'
+import { icons } from '../../assets'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
-
   console.log(currentWidth)
-
+  const { isMobile } = useMobile(currentWidth)
+  console.log(isMobile)
   return (
-    <StackContainer direction='vertical'>
-      <StyledWrapper>
+    <StackContainer direction={isMobile ? 'vertical' : 'horizontal'}>
+      <StyledFormContainer isMobile={isMobile}>
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
         <StyledForm>
-          <StyledInput placeholder='Email' />
-          <StyledInput placeholder='Contraseña' />
-          <StyledButton onClick={e => e.preventDefault()}>
+          <StyledInput placeholder='Email' isMobile={isMobile} />
+          <StyledInput placeholder='Contraseña' isMobile={isMobile} />
+          <StyledButton isMobile={isMobile} onClick={e => e.preventDefault()}>
             Inicia sesión
           </StyledButton>
         </StyledForm>
@@ -34,7 +35,12 @@ const Login = () => {
           No tienes una cuenta?
           <StyledRegisterText>Registrate</StyledRegisterText>
         </StyledText>
-      </StyledWrapper>
+      </StyledFormContainer>
+      {!isMobile && (
+        <StyledImageContainer isMobile={isMobile}>
+          <StyledImage src={icons.login} alt='login screen' />
+        </StyledImageContainer>
+      )}
     </StackContainer>
   )
 }

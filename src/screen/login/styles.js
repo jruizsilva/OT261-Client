@@ -8,14 +8,16 @@ const StackContainer = styled(Stack)`
   font-family: var(--font-poppins);
 `
 
-const StyledWrapper = styled(Stack)`
+const StyledFormContainer = styled(Stack)`
   min-width: 20rem;
   max-width: 30rem;
+  height: ${({ isMobile }) => (isMobile ? '420px' : '100%')};
   margin: auto;
   padding-top: 2.5rem;
   padding-bottom: 1.5rem;
   padding-left: 8px;
   padding-right: 8px;
+  flex-basis: ${({ isMobile }) => `${!isMobile && '50%'}`};
 `
 
 const StyledWelcomeText = styled('p')`
@@ -38,17 +40,19 @@ const StyledText = styled('p')`
   margin: 0;
   margin-top: auto;
   text-align: center;
-  font-size: 1rem; // 24px desktop
-
+  font-size: ${({ isMobile }) => (isMobile ? '1rem' : '1.5rem')};
   color: #616161;
 `
 const StyledRegisterText = styled('span')`
   margin: 0;
   margin-left: 0.2rem;
-  font-size: 1rem; // 24px desktop
+  font-size: ${({ isMobile }) => (isMobile ? '1rem' : '1.5rem')};
   color: red;
   font-weight: 500;
-  cursor: pointer;
+  :hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
 const StyledForm = styled('form')``
 const StyledInput = styled('input')`
@@ -57,7 +61,7 @@ const StyledInput = styled('input')`
   width: 100%;
   border-radius: 0.5rem;
   border: 1px solid #b0b0b0;
-  height: 3rem; // 56px desktop
+  height: ${({ isMobile }) => (isMobile ? '3rem' : '3.5rem')};
   padding: 16px;
   font-size: 16px;
 
@@ -70,15 +74,27 @@ const StyledButton = styled('button')`
   background-color: red;
   width: 100%;
   font-weight: 600;
-  height: 3rem; // 56px desktop
+  height: ${({ isMobile }) => (isMobile ? '3rem' : '3.5rem')};
   font-size: 1.125rem; // 24px desktop
+  font-size: ${({ isMobile }) => (isMobile ? '1.125rem' : '1.5rem')};
   color: white;
   border-radius: 0.5rem;
 `
 
+const StyledImageContainer = styled('div')`
+  height: 100%;
+  flex-basis: ${({ isMobile }) => `${!isMobile && '50%'}`};
+`
+
+const StyledImage = styled('img')`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`
+
 export {
   StackContainer,
-  StyledWrapper,
+  StyledFormContainer,
   StyledWelcomeText,
   StyledTitle,
   StyledText,
@@ -86,4 +102,6 @@ export {
   StyledForm,
   StyledInput,
   StyledButton,
+  StyledImageContainer,
+  StyledImage,
 }
