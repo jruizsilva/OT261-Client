@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { useCurrentWidth } from '../../hooks/useCurrentWidth'
 import {
   StackContainer,
   StyledWelcomeText,
@@ -12,6 +14,10 @@ import {
 } from './styles'
 
 const Login = () => {
+  const { currentWidth } = useCurrentWidth()
+
+  console.log(currentWidth)
+
   return (
     <StackContainer direction='vertical'>
       <StyledWrapper>
