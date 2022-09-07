@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Stack } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const StackContainer = styled(Stack)`
   width: 100vw;
@@ -11,13 +12,13 @@ const StackContainer = styled(Stack)`
 const StyledFormContainer = styled(Stack)`
   min-width: 20rem;
   max-width: 30rem;
-  height: ${({ isMobile }) => (isMobile ? '420px' : '100%')};
+  height: ${({ ismobile }) => (ismobile === 'true' ? '420px' : '100%')};
   margin: auto;
   padding-top: 2.5rem;
   padding-bottom: 1.5rem;
   padding-left: 8px;
   padding-right: 8px;
-  flex-basis: ${({ isMobile }) => `${!isMobile && '50%'}`};
+  flex-basis: ${({ ismobile }) => `${ismobile !== 'true' && '50%'}`};
 `
 
 const StyledWelcomeText = styled('p')`
@@ -40,28 +41,40 @@ const StyledText = styled('p')`
   margin: 0;
   margin-top: auto;
   text-align: center;
-  font-size: ${({ isMobile }) => (isMobile ? '1rem' : '1.5rem')};
+  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1rem' : '1.5rem')};
   color: #616161;
 `
-const StyledRegisterText = styled('span')`
+const StyledRegisterText = styled(Link)`
   margin: 0;
   margin-left: 0.2rem;
-  font-size: ${({ isMobile }) => (isMobile ? '1rem' : '1.5rem')};
+  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1rem' : '1.5rem')};
   color: red;
   font-weight: 500;
+  text-decoration: none;
   :hover {
     cursor: pointer;
+    color: red;
     text-decoration: underline;
   }
 `
-const StyledForm = styled('form')``
+const StyledForm = styled('form')`
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`
+
+const StyledBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+`
+
 const StyledInput = styled('input')`
-  margin-bottom: 1.5rem;
   background-color: white;
   width: 100%;
   border-radius: 0.5rem;
   border: 1px solid #b0b0b0;
-  height: ${({ isMobile }) => (isMobile ? '3rem' : '3.5rem')};
+  height: ${({ ismobile }) => (ismobile === 'true' ? '3rem' : '3.5rem')};
   padding: 16px;
   font-size: 16px;
 
@@ -70,19 +83,30 @@ const StyledInput = styled('input')`
     box-shadow: 0px 0px 5px #007bff;
   }
 `
+
+const StyledErrorText = styled('p')`
+  margin: 0;
+  color: red;
+  font-size: 0.875rem;
+`
+
 const StyledButton = styled('button')`
   background-color: red;
   width: 100%;
   font-weight: 600;
-  height: ${({ isMobile }) => (isMobile ? '3rem' : '3.5rem')};
-  font-size: ${({ isMobile }) => (isMobile ? '1.125rem' : '1.5rem')};
+  height: ${({ ismobile }) => (ismobile === 'true' ? '3rem' : '3.5rem')};
+  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1.125rem' : '1.5rem')};
   color: white;
   border-radius: 0.5rem;
+
+  :disabled {
+    opacity: 0.5;
+  }
 `
 
 const StyledImageContainer = styled('div')`
   height: 100%;
-  flex-basis: ${({ isMobile }) => `${!isMobile && '50%'}`};
+  flex-basis: ${({ ismobile }) => `${ismobile !== 'true' && '50%'}`};
 `
 
 const StyledImage = styled('img')`
@@ -99,7 +123,9 @@ export {
   StyledText,
   StyledRegisterText,
   StyledForm,
+  StyledBox,
   StyledInput,
+  StyledErrorText,
   StyledButton,
   StyledImageContainer,
   StyledImage,

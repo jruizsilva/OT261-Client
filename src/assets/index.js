@@ -20,7 +20,6 @@ const icons = {
   users,
   edit,
   login,
-  login,
 }
 
 export { icons }
