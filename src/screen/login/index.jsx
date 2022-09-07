@@ -17,16 +17,19 @@ import {
 } from './styles'
 import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
+import { loginAsync } from '../../store/slice/user'
+import { useDispatch } from 'react-redux'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
   const { ismobile } = useMobile(currentWidth)
+  const dispatch = useDispatch()
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: values => {
-      console.log(values)
+      dispatch(loginAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
     },
