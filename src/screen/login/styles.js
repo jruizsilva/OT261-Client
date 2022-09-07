@@ -75,7 +75,6 @@ const StyledButton = styled('button')`
   width: 100%;
   font-weight: 600;
   height: ${({ isMobile }) => (isMobile ? '3rem' : '3.5rem')};
-  font-size: 1.125rem; // 24px desktop
   font-size: ${({ isMobile }) => (isMobile ? '1.125rem' : '1.5rem')};
   color: white;
   border-radius: 0.5rem;
