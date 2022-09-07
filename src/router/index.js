@@ -2,11 +2,12 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 
 import Home from '../screen/home'
 import News from '../screen/news'
-import Login from '../Components/login/Login'
+// import Login from '../Components/login/Login'
 import Registration from '../Components/Registration/Registration'
 import RoutesAnimationLayout from '../Components/RoutesAnimationLayout'
 import { BackofficeRoutes } from './BackofficeRoutes'
 import Activities from '../screen/activities'
+import Login from '../screen/login'
 
 const Routing = () => {
   const location = useLocation()
