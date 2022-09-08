@@ -20,19 +20,34 @@ import { useCurrentWidth, useIsUpperBreakpoint } from '../../hooks'
 
 const About = () => {
   const { currentWidth } = useCurrentWidth()
-  const [isUpper500px] = useIsUpperBreakpoint(currentWidth, 500)
-
-  console.log(isUpper500px)
+  const [isUpper768px] = useIsUpperBreakpoint(currentWidth, 768)
+  const [isUpper1024px] = useIsUpperBreakpoint(currentWidth, 1024)
 
   return (
-    <StyledAboutContainer gap={4}>
-      <StyledTitle>¡Nuestro staff!</StyledTitle>
-      <StyledMemberContainer>
-        <StyledLeftWrapper>
-          <StyledMemberTitle>Roberto Martinez</StyledMemberTitle>
-          <StyledMemberMobileImage src={icons.staff_members[0].image} />
-          <StyledMemberRole>Rol que desempeña</StyledMemberRole>
-          <StyledMemberDescription>
+    <StyledAboutContainer isUpper1024px={isUpper1024px} gap={5}>
+      <StyledTitle isUpper768px={isUpper768px} isUpper1024px={isUpper1024px}>
+        ¡Nuestro staff!
+      </StyledTitle>
+      <StyledMemberContainer
+        gap={5}
+        direction={isUpper768px ? 'horizontal' : 'vertical'}
+        isUpper768px={isUpper768px}
+      >
+        <StyledLeftWrapper isUpper768px={isUpper768px}>
+          <StyledMemberTitle
+            isUpper768px={isUpper768px}
+            isUpper1024px={isUpper1024px}
+          >
+            Roberto Martinez
+          </StyledMemberTitle>
+          {!isUpper768px && (
+            <StyledMemberMobileImage src={icons.staff_members[0].image} />
+          )}
+
+          <StyledMemberRole isUpper1024px={isUpper1024px}>
+            Rol que desempeña
+          </StyledMemberRole>
+          <StyledMemberDescription isUpper768px={isUpper768px}>
             Texto con descripcion de la persona y rol que desempeñaTexto con
             descripcion de la persona y rol que desempeñaTexto con descripcion
             de la persona y rol que desempeñaTexto con descripcion de la persona
@@ -41,17 +56,24 @@ const About = () => {
             desempeñaTexto con descripcion de la persona y rol que
             desempeñaTexto con descripcion de la persona y rol que desempeña
           </StyledMemberDescription>
-          <StyledMemberButton>¡Quiero ser parte!</StyledMemberButton>
+          <StyledMemberButton
+            isUpper768px={isUpper768px}
+            isUpper1024px={isUpper1024px}
+          >
+            ¡Quiero ser parte!
+          </StyledMemberButton>
         </StyledLeftWrapper>
-        <StyledRightWrapper>
-          <StyledMemberDesktopImage src={icons.staff_members[0].image} />
-        </StyledRightWrapper>
+        {isUpper768px && (
+          <StyledRightWrapper>
+            <StyledMemberDesktopImage src={icons.staff_members[0].image} />
+          </StyledRightWrapper>
+        )}
       </StyledMemberContainer>
-      <StyledList>
+      <StyledList isUpper768px={isUpper768px}>
         {icons.staff_members.map(({ image, id }) => {
           if (id === 1) return null
           return (
-            <StyledItem key={id} bg={image}>
+            <StyledItem isUpper768px={isUpper768px} key={id} bg={image}>
               <StyledName>Julian Fernandez</StyledName>
               <StyledRole>Ceo / CoFounder</StyledRole>
             </StyledItem>
