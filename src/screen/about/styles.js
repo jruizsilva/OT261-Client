@@ -20,6 +20,26 @@ const StyledMemberContainer = styled(Stack)`
   max-width: 25rem;
   margin: auto;
   margin-bottom: 1.5rem;
+
+  @media screen and (min-width: 768px) {
+    max-width: 81rem;
+  }
+`
+
+const StyledLeftWrapper = styled(Stack)`
+  padding: 0 0.75rem;
+  row-gap: 0.5rem;
+  max-width: 25rem;
+  margin: auto;
+  margin-bottom: 1.5rem;
+`
+
+const StyledRightWrapper = styled('div')`
+  padding: 0 0.75rem;
+  row-gap: 0.5rem;
+  max-width: 25rem;
+  margin: auto;
+  margin-bottom: 1.5rem;
 `
 
 const StyledMemberTitle = styled('h3')`
@@ -102,6 +122,10 @@ const StyledMemberMobileImage = styled('img')`
   height: 12.5rem;
   margin: auto;
   border-radius: 1rem;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 const StyledMemberDesktopImage = styled('img')``
@@ -120,4 +144,6 @@ export {
   StyledItem,
   StyledName,
   StyledRole,
+  StyledLeftWrapper,
+  StyledRightWrapper,
 }
