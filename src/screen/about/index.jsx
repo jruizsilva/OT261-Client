@@ -16,8 +16,14 @@ import {
   StyledTitle,
 } from './styles'
 import { icons } from '../../assets'
+import { useCurrentWidth, useIsUpperBreakpoint } from '../../hooks'
 
 const About = () => {
+  const { currentWidth } = useCurrentWidth()
+  const [isUpper500px] = useIsUpperBreakpoint(currentWidth, 500)
+
+  console.log(isUpper500px)
+
   return (
     <StyledAboutContainer gap={4}>
       <StyledTitle>¡Nuestro staff!</StyledTitle>
@@ -45,7 +51,7 @@ const About = () => {
         {icons.staff_members.map(({ image, id }) => {
           if (id === 1) return null
           return (
-            <StyledItem bg={image}>
+            <StyledItem key={id} bg={image}>
               <StyledName>Julian Fernandez</StyledName>
               <StyledRole>Ceo / CoFounder</StyledRole>
             </StyledItem>
