@@ -17,7 +17,7 @@ import {
 } from './styles'
 import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
-import { loginAsync } from '../../store/slice/user'
+import { registerAsync } from '../../store/slice/user'
 import { useDispatch } from 'react-redux'
 
 const Login = () => {
@@ -29,7 +29,7 @@ const Login = () => {
     initialValues,
     validationSchema,
     onSubmit: values => {
-      dispatch(loginAsync(values))
+      dispatch(registerAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
     },
@@ -59,7 +59,7 @@ const Login = () => {
           <StyledBox>
             <StyledInput
               autoComplete='off'
-              placeholder='Contraseña'
+              placeholder='Apellido'
               ismobile={ismobile}
               type='password'
               name='surname'

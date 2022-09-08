@@ -43,6 +43,7 @@ const StyledText = styled('p')`
   text-align: center;
   font-size: ${({ ismobile }) => (ismobile === 'true' ? '1rem' : '1.5rem')};
   color: #616161;
+  font-family: var(--font-roboto);
 `
 const StyledRegisterText = styled(Link)`
   margin: 0;

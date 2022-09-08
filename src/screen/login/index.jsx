@@ -43,6 +43,7 @@ const Login = () => {
         <StyledForm onSubmit={formik.handleSubmit}>
           <StyledBox>
             <StyledInput
+              autoComplete='off'
               placeholder='Email'
               ismobile={ismobile}
               type='text'
@@ -57,6 +58,7 @@ const Login = () => {
           </StyledBox>
           <StyledBox>
             <StyledInput
+              autoComplete='off'
               placeholder='Contraseña'
               ismobile={ismobile}
               type='password'
