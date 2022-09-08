@@ -8,6 +8,7 @@ import RoutesAnimationLayout from '../Components/RoutesAnimationLayout'
 import { BackofficeRoutes } from './BackofficeRoutes'
 import Activities from '../screen/activities'
 import Login from '../screen/login'
+import Register from '../screen/register'
 
 const Routing = () => {
   const location = useLocation()
@@ -18,7 +19,8 @@ const Routing = () => {
         <Route path='/news' element={<News />} />
         <Route path='/backoffice/*' element={<BackofficeRoutes />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Registration />} />
+        <Route path='/registerold' element={<Registration />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/activities' element={<Activities />} />
       </Routes>
     </RoutesAnimationLayout>

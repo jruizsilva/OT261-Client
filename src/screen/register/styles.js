@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const StackContainer = styled(Stack)`
   width: 100vw;
   height: calc(100vh - 6.25rem);
+  overflow-y: hidden;
   margin: 0 -0.75em;
   font-family: var(--font-poppins);
 `
@@ -14,11 +15,12 @@ const StyledFormContainer = styled(Stack)`
   max-width: 30rem;
   height: ${({ ismobile }) => (ismobile === 'true' ? '420px' : '100%')};
   margin: auto;
-  padding-top: 2.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 8px;
   padding-right: 8px;
   flex-basis: ${({ ismobile }) => `${ismobile !== 'true' && '50%'}`};
+  overflow-y: auto;
 `
 
 const StyledWelcomeText = styled('p')`
@@ -41,13 +43,14 @@ const StyledText = styled('p')`
   margin: 0;
   margin-top: auto;
   text-align: center;
-  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1rem' : '1.5rem')};
+  font-size: 1rem;
   color: #616161;
+  font-family: var(--font-roboto);
 `
 const StyledRegisterText = styled(Link)`
   margin: 0;
   margin-left: 0.2rem;
-  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1rem' : '1.5rem')};
+  font-size: 1rem;
   color: red;
   font-weight: 500;
   text-decoration: none;
@@ -60,13 +63,13 @@ const StyledRegisterText = styled(Link)`
 const StyledForm = styled('form')`
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 10px;
 `
 
 const StyledBox = styled('div')`
   display: flex;
   flex-direction: column;
-  row-gap: 4px;
+  row-gap: 2px;
 `
 
 const StyledInput = styled('input')`
@@ -74,7 +77,7 @@ const StyledInput = styled('input')`
   width: 100%;
   border-radius: 0.5rem;
   border: 1px solid #b0b0b0;
-  height: ${({ ismobile }) => (ismobile === 'true' ? '3rem' : '3.5rem')};
+  height: 3rem;
   padding: 16px;
   font-size: 16px;
 
@@ -94,8 +97,8 @@ const StyledButton = styled('button')`
   background-color: red;
   width: 100%;
   font-weight: 600;
-  height: ${({ ismobile }) => (ismobile === 'true' ? '3rem' : '3.5rem')};
-  font-size: ${({ ismobile }) => (ismobile === 'true' ? '1.125rem' : '1.5rem')};
+  height: 3rem;
+  font-size: 1.125rem;
   color: white;
   border-radius: 0.5rem;
 

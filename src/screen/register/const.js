@@ -1,6 +1,14 @@
 import * as Yup from 'yup'
 
 const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, 'Debe tener mínimo 2 caracteres')
+    .max(16, 'Debe tener máximo 16 caracteres')
+    .required('El nombre es requerido'),
+  surname: Yup.string()
+    .min(6, 'Debe tener mínimo 2 caracteres')
+    .max(16, 'Debe tener máximo 16 caracteres')
+    .required('El apellido es requerido'),
   email: Yup.string()
     .email('El ingresado email no es válido')
     .required('El email es requerido'),
@@ -10,6 +18,8 @@ const validationSchema = Yup.object({
     .required('La contraseña es requerida'),
 })
 const initialValues = {
+  name: '',
+  surname: '',
   email: '',
   password: '',
 }

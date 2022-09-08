@@ -39,10 +39,41 @@ const Login = () => {
     <StackContainer direction={ismobile === 'true' ? 'vertical' : 'horizontal'}>
       <StyledFormContainer ismobile={ismobile}>
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
-        <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
+        <StyledTitle>¡Registrate!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
           <StyledBox>
             <StyledInput
+              autoComplete='off'
+              placeholder='Nombre'
+              ismobile={ismobile}
+              type='text'
+              name='name'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+            />
+            {formik.touched.name && formik.errors.name && (
+              <StyledErrorText>{formik.errors.name}</StyledErrorText>
+            )}
+          </StyledBox>
+          <StyledBox>
+            <StyledInput
+              autoComplete='off'
+              placeholder='Contraseña'
+              ismobile={ismobile}
+              type='password'
+              name='surname'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.surname}
+            />
+            {formik.touched.surname && formik.errors.surname && (
+              <StyledErrorText>{formik.errors.surname}</StyledErrorText>
+            )}
+          </StyledBox>
+          <StyledBox>
+            <StyledInput
+              autoComplete='off'
               placeholder='Email'
               ismobile={ismobile}
               type='text'
@@ -57,6 +88,7 @@ const Login = () => {
           </StyledBox>
           <StyledBox>
             <StyledInput
+              autoComplete='off'
               placeholder='Contraseña'
               ismobile={ismobile}
               type='password'
@@ -80,8 +112,8 @@ const Login = () => {
           </StyledButton>
         </StyledForm>
         <StyledText>
-          No tienes una cuenta?
-          <StyledRegisterText to='/register'>Registrate</StyledRegisterText>
+          ¿Ya tienes una cuenta?
+          <StyledRegisterText to='/login'>Inicia sesión</StyledRegisterText>
         </StyledText>
       </StyledFormContainer>
       {ismobile !== 'true' && (
