@@ -1,28 +1,33 @@
 const links = [
   {
     name: 'Inicio',
-    url: '/',
+    url: '/'
   },
+
   {
     name: 'Nosotros',
-    url: '/about',
+    url: '/about'
   },
   {
     name: 'Novedades',
-    url: '/news',
+    url: '/news'
+  },
+  {
+    name: 'Actividades',
+    url: '/activities'
   },
   {
     name: 'Testimonios',
-    url: '/testimonials',
+    url: '/testimonials'
   },
   {
     name: 'Contacto',
-    url: '/contact',
+    url: '/contact'
   },
   {
     name: 'Contribuye',
-    url: '/contribute',
-  },
-];
+    url: '/contribute'
+  }
+]
 
-export default links;
+export default links
