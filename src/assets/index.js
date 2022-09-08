@@ -1,12 +1,23 @@
-import activities from './activities.svg';
-import categories from './categories.svg';
-import testimonials from './testimonials.svg';
-import members from './members.svg';
-import news from './news.svg';
-import organization from './organization.svg';
-import slides from './slides.svg';
-import users from './users.svg';
-import edit from './edit.svg';
+import activities from './activities.svg'
+import categories from './categories.svg'
+import testimonials from './testimonials.svg'
+import members from './members.svg'
+import news from './news.svg'
+import organization from './organization.svg'
+import slides from './slides.svg'
+import users from './users.svg'
+import edit from './edit.svg'
+import member_1 from './member_1.svg'
+import member_2 from './member_2.svg'
+import member_3 from './member_3.svg'
+import member_4 from './member_4.svg'
+import member_5 from './member_5.svg'
+import member_6 from './member_6.svg'
+import member_7 from './member_7.svg'
+import member_8 from './member_8.svg'
+import member_9 from './member_9.svg'
+import member_10 from './member_10.svg'
+import member_11 from './member_11.svg'
 
 const icons = {
   news,
@@ -18,6 +29,19 @@ const icons = {
   slides,
   users,
   edit,
-};
+  staff_members: [
+    { image: member_1, id: 1 },
+    { image: member_2, id: 2 },
+    { image: member_3, id: 3 },
+    { image: member_4, id: 4 },
+    { image: member_5, id: 5 },
+    { image: member_6, id: 6 },
+    { image: member_7, id: 7 },
+    { image: member_8, id: 8 },
+    { image: member_9, id: 9 },
+    { image: member_10, id: 10 },
+    { image: member_11, id: 11 },
+  ],
+}
 
-export { icons };
+export { icons }
