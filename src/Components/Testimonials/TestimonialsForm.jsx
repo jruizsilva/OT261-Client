@@ -15,6 +15,7 @@ import {
   Title,
   Input,
 } from "./TestimonialsStyle.js";
+import TestimonialsModal from "./testimonialModal/TestimonialsModal.jsx";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("name must be provided"),
@@ -27,7 +28,7 @@ const onSubmit = (values, actions) => {
   actions.resetForm();
 };
 
-const TestimonialForm = () => {
+const TestimonialForm = ({ onClose, openCreateModal }) => {
   const {
     values,
     errors,
@@ -48,10 +49,11 @@ const TestimonialForm = () => {
   const inputHandler = (event, editor) => {
     setFieldValue("description", editor.getData());
   };
-  console.log(errors);
-  return (
-    <Container>
-      <FromWrapper>
+  if (openCreateModal) {
+    return (
+      <TestimonialsModal onClose={onClose}>
+        {/*  <Container> */}
+        {/* <FromWrapper> */}
         <Form className="form-container" onSubmit={handleSubmit}>
           <TitleContainer>
             <Title>Create a Testimonial</Title>
@@ -92,9 +94,13 @@ const TestimonialForm = () => {
             Send Testimonial
           </Button>
         </Form>
-      </FromWrapper>
-    </Container>
-  );
+        {/* </FromWrapper> */}
+        {/* </Container> */}
+      </TestimonialsModal>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default TestimonialForm;
