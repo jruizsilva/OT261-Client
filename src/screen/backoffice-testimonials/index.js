@@ -10,6 +10,10 @@ import {
   Name,
   TestimonialWrapper,
   Testimonial,
+  TitleWrapper,
+  ButtonsWrapper,
+  AddTestimonial,
+  BackToHome,
 } from "./styles.js";
 import useFetch from "./utils.js";
 import Spinner from "react-bootstrap/Spinner";
@@ -17,7 +21,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 const BackofficeTestimonials = () => {
   const { data, loading /* , error  */ } = useFetch(
-    "https://randomuser.me/api/?results=10"
+    "https://randomuser.me/api/?results=8"
   );
   // console.log(data[0]);
   if (loading) {
@@ -29,7 +33,9 @@ const BackofficeTestimonials = () => {
   } else {
     return (
       <Container>
-        <Title>Testimonios</Title>
+        <TitleWrapper>
+          <Title>Testimonios</Title>
+        </TitleWrapper>
         {data ? (
           <TestimonialsWrapper>
             {data.map((user) => (
@@ -43,13 +49,20 @@ const BackofficeTestimonials = () => {
                 </NameWrapper>
                 <TestimonialWrapper>
                   <Testimonial>
-                    {/* “testimoniotestimoniotestimoniotestimoniotestimoniotestimoniotestimoniotestimoniotestimoniotestimoni” */}
+                    "Contrary to popular belief, Lorem Ipsum is not simply
+                    random text. It has roots in a piece of classical Latin
+                    literature from 45 BC, making it over 2000 years old."
                   </Testimonial>
                 </TestimonialWrapper>
               </CardContainer>
             ))}
           </TestimonialsWrapper>
         ) : null}
+
+        <ButtonsWrapper>
+          <AddTestimonial>Agregar mi testimonio!</AddTestimonial>
+          <BackToHome>Ir al inicio</BackToHome>
+        </ButtonsWrapper>
       </Container>
     );
   }
