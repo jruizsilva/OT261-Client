@@ -30,6 +30,7 @@ const icons = {
   slides,
   users,
   edit,
+  login,
   staff_members: [
     { image: member_1, id: 1 },
     { image: member_2, id: 2 },
