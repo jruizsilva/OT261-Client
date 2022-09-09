@@ -8,6 +8,7 @@ import RoutesAnimationLayout from '../Components/RoutesAnimationLayout'
 import { BackofficeRoutes } from './BackofficeRoutes'
 import Activities from '../screen/activities'
 import About from '../screen/about'
+import Contact from '../screen/contact'
 
 const Routing = () => {
   const location = useLocation()
@@ -21,6 +22,7 @@ const Routing = () => {
         <Route path='/register' element={<Registration />} />
         <Route path='/activities' element={<Activities />} />
         <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </RoutesAnimationLayout>
   )
