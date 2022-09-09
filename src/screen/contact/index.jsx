@@ -13,7 +13,6 @@ import {
   StyledFormContainer,
   StyledHomeButton,
   StyledInput,
-  StyledTitle,
   StyledWrapper,
 } from './styles'
 
