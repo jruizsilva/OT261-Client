@@ -1,33 +1,33 @@
 const links = [
   {
-    name: 'Inicio',
-    url: '/'
+    name: "Inicio",
+    url: "/",
   },
 
   {
-    name: 'Nosotros',
-    url: '/about'
+    name: "Nosotros",
+    url: "/about",
   },
   {
-    name: 'Novedades',
-    url: '/news'
+    name: "Novedades",
+    url: "/news",
   },
   {
-    name: 'Actividades',
-    url: '/activities'
+    name: "Actividades",
+    url: "/activities",
   },
   {
-    name: 'Testimonios',
-    url: '/testimonials'
+    name: "Testimonios",
+    url: "/backoffice/testimonials",
   },
   {
-    name: 'Contacto',
-    url: '/contact'
+    name: "Contacto",
+    url: "/contact",
   },
   {
-    name: 'Contribuye',
-    url: '/contribute'
-  }
-]
+    name: "Contribuye",
+    url: "/contribute",
+  },
+];
 
-export default links
+export default links;
