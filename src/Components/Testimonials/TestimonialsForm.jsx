@@ -22,14 +22,13 @@ const validationSchema = Yup.object({
   description: Yup.string().max(300).required("description must be provided"),
 });
 
-const onSubmit = (values, actions) => {
-  console.log(values);
-
-  actions.resetForm();
-};
-
 const TestimonialForm = ({ onClose, openCreateModal }) => {
   // const dispatch = useDispatch();
+  const onSubmit = (values, actions) => {
+    console.log(values);
+    onClose();
+    actions.resetForm();
+  };
 
   const {
     values,
