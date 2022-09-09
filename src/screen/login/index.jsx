@@ -19,6 +19,7 @@ import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
 import { loginAsync } from '../../store/slice/user'
 import { useDispatch } from 'react-redux'
+import { loginFields } from './const'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
@@ -44,36 +45,23 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Email'
-              ismobile={ismobile}
-              type='text'
-              name='email'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email && (
-              <StyledErrorText>{formik.errors.email}</StyledErrorText>
-            )}
-          </StyledBox>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Contraseña'
-              ismobile={ismobile}
-              type='password'
-              name='password'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.touched.password && formik.errors.password && (
-              <StyledErrorText>{formik.errors.password}</StyledErrorText>
-            )}
-          </StyledBox>
+          {loginFields.map(({ name, placeholder }) => (
+            <StyledBox>
+              <StyledInput
+                name={name}
+                placeholder={placeholder}
+                ismobile={ismobile}
+                autoComplete='off'
+                type='text'
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values[name]}
+              />
+              {formik.touched[name] && formik.errors[name] && (
+                <StyledErrorText>{formik.errors[name]}</StyledErrorText>
+              )}
+            </StyledBox>
+          ))}
           <StyledButton
             type='submit'
             ismobile={ismobile}
