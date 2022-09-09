@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const StackContainer = styled(Stack)`
   width: 100vw;
   height: calc(100vh - 6.25rem);
+  overflow-y: ${({ ismobile }) => `${ismobile === 'true' ? 'auto' : 'hidden'}`};
   margin: 0 -0.75em;
   font-family: var(--font-poppins);
 `
@@ -12,10 +13,11 @@ const StackContainer = styled(Stack)`
 const StyledFormContainer = styled(Stack)`
   min-width: 20rem;
   max-width: 30rem;
-  height: ${({ ismobile }) => (ismobile === 'true' ? '420px' : '100%')};
+  height: 420px;
+  flex-grow: 0;
   margin: auto;
-  padding-top: 2.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 8px;
   padding-right: 8px;
   flex-basis: ${({ ismobile }) => `${ismobile !== 'true' && '50%'}`};

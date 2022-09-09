@@ -36,7 +36,10 @@ const Login = () => {
   })
 
   return (
-    <StackContainer direction={ismobile === 'true' ? 'vertical' : 'horizontal'}>
+    <StackContainer
+      direction={ismobile === 'true' ? 'vertical' : 'horizontal'}
+      ismobile={ismobile}
+    >
       <StyledFormContainer ismobile={ismobile}>
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
