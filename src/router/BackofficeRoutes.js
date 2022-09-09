@@ -4,7 +4,7 @@ import Backoffice from "../screen/backoffice";
 import { RequireAuth } from "./RequireAuth";
 import { RequireAdminRole } from "./RequireAdminRole";
 import { BackofficeActivities } from "../screen/backoffice-activities";
-import { BackofficeTestimonials } from "../screen/backoffice-testimonials/index,";
+import BackofficeTestimonials from "../screen/backoffice-testimonials";
 
 export const BackofficeRoutes = () => {
   return (
