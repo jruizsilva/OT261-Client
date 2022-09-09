@@ -4,7 +4,7 @@ const validationSchema = Yup.object().shape({
   fullname: Yup.string()
     .min(2, 'Debe tener mínimo 2 caracteres')
     .max(64, 'Debe tener máximo 64 caracteres')
-    .required('El nombre es requerido'),
+    .required('El nombre completo es requerido'),
   email: Yup.string()
     .email('El ingresado email no es válido')
     .required('El email es requerido'),

@@ -11,6 +11,7 @@ import {
   StyledErrorText,
   StyledForm,
   StyledFormContainer,
+  StyledHomeButton,
   StyledInput,
   StyledTitle,
   StyledWrapper,
@@ -53,7 +54,7 @@ const Contact = () => {
         </StyledFormContainer>
       </StyledWrapper>
 
-      <StyledButton>Ir al inicio</StyledButton>
+      <StyledHomeButton>Ir al inicio</StyledHomeButton>
     </StyledContactContainer>
   )
 }
