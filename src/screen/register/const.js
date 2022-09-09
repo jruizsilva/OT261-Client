@@ -23,5 +23,11 @@ const initialValues = {
   email: '',
   password: '',
 }
+const registerFields = [
+  { name: 'name', placeholder: 'Nombre' },
+  { name: 'surname', placeholder: 'Apellido' },
+  { name: 'email', placeholder: 'Email' },
+  { name: 'password', placeholder: 'Contraseña' },
+]
 
-export { validationSchema, initialValues }
+export { validationSchema, initialValues, registerFields }

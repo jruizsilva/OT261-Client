@@ -19,6 +19,7 @@ import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
 import { registerAsync } from '../../store/slice/user'
 import { useDispatch } from 'react-redux'
+import { registerFields } from './const'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
@@ -44,66 +45,23 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>¡Registrate!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Nombre'
-              ismobile={ismobile}
-              type='text'
-              name='name'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-            />
-            {formik.touched.name && formik.errors.name && (
-              <StyledErrorText>{formik.errors.name}</StyledErrorText>
-            )}
-          </StyledBox>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Apellido'
-              ismobile={ismobile}
-              type='password'
-              name='surname'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.surname}
-            />
-            {formik.touched.surname && formik.errors.surname && (
-              <StyledErrorText>{formik.errors.surname}</StyledErrorText>
-            )}
-          </StyledBox>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Email'
-              ismobile={ismobile}
-              type='text'
-              name='email'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email && (
-              <StyledErrorText>{formik.errors.email}</StyledErrorText>
-            )}
-          </StyledBox>
-          <StyledBox>
-            <StyledInput
-              autoComplete='off'
-              placeholder='Contraseña'
-              ismobile={ismobile}
-              type='password'
-              name='password'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.touched.password && formik.errors.password && (
-              <StyledErrorText>{formik.errors.password}</StyledErrorText>
-            )}
-          </StyledBox>
+          {registerFields.map(({ name, placeholder }) => (
+            <StyledBox>
+              <StyledInput
+                name={name}
+                placeholder={placeholder}
+                autoComplete='off'
+                ismobile={ismobile}
+                type='text'
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+              />
+              {formik.touched[name] && formik.errors[name] && (
+                <StyledErrorText>{formik.errors[name]}</StyledErrorText>
+              )}
+            </StyledBox>
+          ))}
           <StyledButton
             type='submit'
             ismobile={ismobile}
