@@ -2,10 +2,10 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import "../FormStyles.css";
+// import { useDispatch } from "react-redux";
 import {
-  Container,
-  FromWrapper,
+  /*  Container,
+  FromWrapper, */
   Label,
   Form,
   FromGroup,
@@ -24,11 +24,13 @@ const validationSchema = Yup.object({
 
 const onSubmit = (values, actions) => {
   console.log(values);
-  console.log(actions);
+
   actions.resetForm();
 };
 
 const TestimonialForm = ({ onClose, openCreateModal }) => {
+  // const dispatch = useDispatch();
+
   const {
     values,
     errors,

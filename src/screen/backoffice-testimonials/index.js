@@ -32,7 +32,7 @@ const BackofficeTestimonials = () => {
   const { data, loading /* , error  */ } = useFetch(
     "https://randomuser.me/api/?results=10"
   );
-  console.log(openCreateModal);
+
   if (loading) {
     return (
       <SpinnerContainer>
