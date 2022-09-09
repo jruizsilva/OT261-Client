@@ -4,6 +4,7 @@ import { Stack, Button, Nav } from 'react-bootstrap'
 const StyledContainer = styled(Stack)`
   background-color: #edf2f7;
   min-height: calc(100vh - 6.25rem);
+  margin: 0 -0.5rem;
 `
 
 const TitleGroup = styled.div`
