@@ -8,6 +8,7 @@ import {
   ButtonItem,
   TitleGroup,
   ActivitiyTitle,
+  StyledNav,
 } from './styles'
 import {
   deleteActivityAsync,
@@ -70,13 +71,13 @@ export const BackofficeActivities = () => {
       <StyledContainer className='pt-4'>
         <Stack as='main'>
           <Container>
-            <Nav>
+            <StyledNav>
               <Nav.Item>
                 <LinkContainer to='/backoffice'>
-                  <Nav.Link>Regresar</Nav.Link>
+                  <Nav.Link className='text-center'>Regresar</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
-            </Nav>
+            </StyledNav>
             <ActivitiyTitle ActivitiyTitle>Lista de actividades</ActivitiyTitle>
             <TitleGroup>
               <ButtonItem onClick={() => setOpenCreateModal(true)}>
