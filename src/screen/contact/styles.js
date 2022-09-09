@@ -6,6 +6,9 @@ const StyledTitle = styled('h3')``
 const StyledButton = styled('button')``
 const StyledFormContainer = styled('div')``
 const StyledForm = styled('form')``
+const StyledBox = styled('div')``
+const StyledInput = styled('input')``
+const StyledErrorText = styled('p')``
 
 export {
   StyledContactContainer,
@@ -14,4 +17,7 @@ export {
   StyledButton,
   StyledFormContainer,
   StyledForm,
+  StyledBox,
+  StyledInput,
+  StyledErrorText,
 }
