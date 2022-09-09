@@ -4,6 +4,7 @@ import Backoffice from '../screen/backoffice';
 import { RequireAuth } from './RequireAuth';
 import { RequireAdminRole } from './RequireAdminRole';
 import { BackofficeActivities } from '../screen/backoffice-activities';
+import { BackofficeTestimonials } from '../screen/backoffice-testimonials/index,';
 
 export const BackofficeRoutes = () => {
   return (
@@ -24,6 +25,17 @@ export const BackofficeRoutes = () => {
           </RequireAdminRole>
         }
       />
+          <Route
+        path='testimonials'
+        element={
+          <RequireAdminRole>
+            <BackofficeTestimonials/>
+          </RequireAdminRole>
+        }
+      />
     </Routes>
+    
+    
+    
   );
 };
