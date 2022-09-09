@@ -56,16 +56,23 @@ const StyledForm = styled('form')`
 `
 const StyledBox = styled('div')``
 const StyledInput = styled('input')`
+  background-color: white;
   width: 100%;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  height: 48px;
+  border-radius: 0.5rem;
+  border: 1px solid #b0b0b0;
+  height: 3rem;
+  padding: 16px;
+  font-size: 16px;
+
   @media screen and (min-width: 768px) {
     height: 70px;
   }
   ::placeholder {
     color: #989898;
+  }
+  :focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #007bff;
   }
 `
 const StyledErrorText = styled('p')``
