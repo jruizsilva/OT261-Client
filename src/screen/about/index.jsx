@@ -1,7 +1,6 @@
 import {
   StyledAboutContainer,
   StyledLeftWrapper,
-  StyledList,
   StyledMemberButton,
   StyledMemberContainer,
   StyledMemberDescription,
@@ -14,7 +13,7 @@ import {
 } from './styles'
 import { icons } from '../../assets'
 import { useCurrentWidth, useIsUpperBreakpoint } from '../../hooks'
-import StaffCard from '../../Components/StaffCard/StaffCard'
+import StaffCardsList from '../../Components/StaffCardsList/StaffCardsList'
 
 const About = () => {
   const { currentWidth } = useCurrentWidth()
@@ -67,14 +66,7 @@ const About = () => {
           </StyledRightWrapper>
         )}
       </StyledMemberContainer>
-      <StyledList isUpper768px={isUpper768px}>
-        {icons.staff_members.map(({ image, id }) => {
-          if (id === 1) return null
-          return (
-            <StaffCard key={id} bg={image} name="Julian Fernandez" role="Ceo / CoFounder"/>
-          )
-        })}
-      </StyledList>
+      <StaffCardsList staff_members={icons.staff_members} />
     </StyledAboutContainer>
   )
 }

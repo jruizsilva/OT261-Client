@@ -66,18 +66,6 @@ const StyledMemberButton = styled('button')`
   margin-top: ${({ isUpper768px }) => (isUpper768px ? 'auto' : '1.5rem')};
 `
 
-const StyledList = styled('ul')`
-  max-width: ${({ isUpper768px }) => (isUpper768px ? '81rem' : '25rem')};
-  margin: 0 auto;
-  display: flex;
-  justify-content: ${({ isUpper768px }) =>
-    isUpper768px ? 'space-between' : 'center'};
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 0;
-  margin-bottom: 4rem;
-`
-
 const StyledMemberMobileImage = styled('img')`
   width: 12.5rem;
   height: 12.5rem;
@@ -103,7 +91,6 @@ export {
   StyledMemberButton,
   StyledMemberMobileImage,
   StyledMemberDesktopImage,
-  StyledList,
   StyledLeftWrapper,
   StyledRightWrapper,
 }
