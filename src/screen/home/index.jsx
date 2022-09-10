@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import HomeStyles from "./styles";
+import { icons } from '../../assets';
+import StaffCardsList from "../../Components/StaffCardsList/StaffCardsList";
 
 const Home = () => { 
 return (
@@ -22,6 +24,15 @@ return (
       <div className="home-top-section-right">
         <img src="/images/home-screen-img.jpg"></img>
       </div>
+    </div>
+    <div className="home-staff-section">
+      <div className="section-title">
+        <h4>Nuestro Staff</h4>
+        <Link to="/about">
+          <p>Ver todos {'>'}</p>
+        </Link>
+      </div>
+      <StaffCardsList staff_members={icons.staff_members.slice(0, 6)} />
     </div>
   </HomeStyles>
 );

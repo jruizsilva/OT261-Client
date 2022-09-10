@@ -4,6 +4,22 @@ import styled from 'styled-components';
 const HomeStyles = styled.div`
   margin-top: 30px;
   font-family: var(--font-poppins);
+
+  .section-title {
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+
+    h4 {
+      font-weight: 700;
+      font-size: 2em;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  } 
+  
   .home-top-section {
     display: flex;
     flex-direction: column;
