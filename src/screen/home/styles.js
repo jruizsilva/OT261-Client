@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const HomeStyles = styled.div`
   margin-top: 30px;
   font-family: var(--font-poppins);
@@ -9,6 +8,7 @@ const HomeStyles = styled.div`
     margin-top: 3em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     h4 {
       font-weight: 700;
@@ -17,9 +17,9 @@ const HomeStyles = styled.div`
     a {
       color: black;
       text-decoration: none;
+      margin-bottom: 7px;
     }
-  } 
-  
+  }
   .home-top-section {
     display: flex;
     flex-direction: column;
@@ -92,6 +92,5 @@ const HomeStyles = styled.div`
     }
   }
 `;
-
 
 export default HomeStyles;
