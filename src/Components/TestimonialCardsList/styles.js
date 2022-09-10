@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TestimonialsListStyle = styled.div`
+const TestimonialCardsListStyle = styled.div`
   @media screen and (min-width: 768px) {
     max-width: 81rem;
     justify-content: space-between;
@@ -16,4 +16,4 @@ const TestimonialsListStyle = styled.div`
   margin-bottom: 4rem;
 `;
 
-export default TestimonialsListStyle;
+export default TestimonialCardsListStyle;

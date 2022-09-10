@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HomeStyles from "./styles";
 import { icons } from '../../assets';
 import StaffCardsList from "../../Components/StaffCardsList/StaffCardsList";
-import TestimonialsList from "../../Components/TestimonialsList/TestimonialsList";
+import TestimonialCardsList from '../../Components/TestimonialCardsList/TestimonialCardsList';
 
 const Home = () => { 
 return (
@@ -29,20 +29,16 @@ return (
     <div className="home-staff-section">
       <div className="section-title">
         <h4>Nuestro Staff</h4>
-        <Link to="/about">
-          Ver todos {'>'}
-        </Link>
+        <Link to="/about">Ver todos {'>'}</Link>
       </div>
       <StaffCardsList staff_members={icons.staff_members.slice(0, 6)} />
     </div>
     <div className="home-testimonials-section">
       <div className="section-title">
         <h4>Testimonios</h4>
-        <Link to="/testimonials">
-          Ver todos {'>'}
-        </Link>
+        <Link to="/testimonials">Ver todos {'>'}</Link>
       </div>
-      <TestimonialsList testimonials={icons.testimonials_imgs} />
+      <TestimonialCardsList testimonials={icons.testimonials_imgs} />
     </div>
   </HomeStyles>
 );

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TestimonialStyle = styled.div`
+const TestimonialCardStyle = styled.div`
   @media screen and (min-width: 768px) {
     width: 13.25rem;
     height: 14.625rem;
@@ -16,13 +16,14 @@ const TestimonialStyle = styled.div`
 
   img {
     width: 35%;
+    border-radius: 200px;
   }
 
   .testimonial-name {
     font-weight: 600;
     margin-bottom: 0;
-    margin-top: 5px
+    margin-top: 5px;
   }
 `;
 
-export default TestimonialStyle;
+export default TestimonialCardStyle;
