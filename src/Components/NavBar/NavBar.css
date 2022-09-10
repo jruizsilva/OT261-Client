@@ -3,14 +3,14 @@
   text-shadow: 0.5px 0.5px !important;
 }
 
-.btn-register {
+.btn-rojo {
   background-color: #a80707 !important;
   border-color: #a80707 !important;
   margin-inline: 10px;
 }
 
 .btn-login,
-.btn-register {
+.btn-rojo {
   border-radius: 15px !important;
   box-shadow: 1px 1px 1px 1px rgba(1, 0, 0, 0.2);
 }
@@ -30,7 +30,7 @@
   }
 
   .btn-login,
-  .btn-register {
+  .btn-rojo {
     margin-right: auto;
     margin-left: auto;
     width: 85%;
