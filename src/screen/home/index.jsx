@@ -4,6 +4,7 @@ import HomeStyles from "./styles";
 import { icons } from '../../assets';
 import StaffCardsList from "../../Components/StaffCardsList/StaffCardsList";
 import TestimonialCardsList from '../../Components/TestimonialCardsList/TestimonialCardsList';
+import NewsCardsList from "../../Components/NewsCardsList/NewsCardsList";
 
 const Home = () => { 
 return (
@@ -39,6 +40,13 @@ return (
         <Link to="/testimonials">Ver todos {'>'}</Link>
       </div>
       <TestimonialCardsList testimonials={icons.testimonials_imgs} />
+    </div>
+    <div className="home-news-section">
+      <div className="section-title">
+        <h4>Últimas novedades</h4>
+        <Link to="/news">Ver todas {'>'}</Link>
+      </div>
+      <NewsCardsList testimonials={icons.news_imgs} />
     </div>
   </HomeStyles>
 );
