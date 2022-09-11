@@ -25,6 +25,9 @@ import testimonial_3 from './testimonial_3.svg';
 import testimonial_4 from './testimonial_4.svg';
 import testimonial_5 from './testimonial_5.svg';
 
+import news_1 from './news_1.svg';
+import news_2 from './news_2.svg';
+
 const icons = {
   news,
   activities,
@@ -55,6 +58,10 @@ const icons = {
     { image: testimonial_4, id: 4 },
     { image: testimonial_5, id: 5 },
   ],
+  news_imgs: [
+    { image: news_1, id: 1 },
+    { image: news_2, id: 2 },
+  ]
 };
 
 export { icons }
