@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import { LinkContainer } from 'react-router-bootstrap'
 import { validationSchema, initialValues, contactFields } from './const'
 import {
   StyledBox,
@@ -53,7 +54,9 @@ const Contact = () => {
         </StyledFormContainer>
       </StyledWrapper>
 
-      <StyledHomeButton>Ir al inicio</StyledHomeButton>
+      <LinkContainer to='/'>
+        <StyledHomeButton>Ir al inicio</StyledHomeButton>
+      </LinkContainer>
     </StyledContactContainer>
   )
 }
