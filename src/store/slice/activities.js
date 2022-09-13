@@ -42,10 +42,14 @@ export const activitiesSlice = createSlice({
       }
     },
     createActivity: (state, action) => {
-      console.log(action.payload)
+      const activity = action.payload
       return {
         ...state,
-        activities: state.activities.concat(action.payload),
+        activities: state.activities.concat({
+          ...activity,
+          title: activity.name,
+          id: state.activities.length + 1,
+        }),
       }
     },
   },
