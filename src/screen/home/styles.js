@@ -83,8 +83,8 @@ const HomeStyles = styled.div`
         @media screen and (min-width: 992px) {
           min-height: 440px;
           max-height: 440px;
-          margin-right: auto;
-          margin-left: 0;
+          margin-right: 0;
+          margin-left: auto;
         }
         margin: auto;
         border-radius: 2.75rem;
