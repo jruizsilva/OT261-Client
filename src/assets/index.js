@@ -7,6 +7,7 @@ import organization from './organization.svg'
 import slides from './slides.svg'
 import users from './users.svg'
 import edit from './edit.svg'
+import login from './login.svg'
 import member_1 from './member_1.svg'
 import member_2 from './member_2.svg'
 import member_3 from './member_3.svg'
@@ -29,6 +30,7 @@ const icons = {
   slides,
   users,
   edit,
+  login,
   staff_members: [
     { image: member_1, id: 1 },
     { image: member_2, id: 2 },
