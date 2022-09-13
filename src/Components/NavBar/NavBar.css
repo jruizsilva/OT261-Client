@@ -1,12 +1,26 @@
 .navbar {
   box-shadow: 2px 2px 2px 1px rgba(1, 0, 0, 0.2);
   text-shadow: 0.5px 0.5px !important;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 9;
+  background-color: white;
+}
+
+.navbrand-disabled {
+  pointer-events: none;
 }
 
 .btn-register {
-  background-color: #a80707 !important;
-  border-color: #a80707 !important;
+  background-color: #c20808;
+  border-color: #c20808;
   margin-inline: 10px;
+  padding-inline: 23px;
+}
+.btn-register:hover {
+  background-color: #920606;
+  border-color: #920606;
 }
 
 .btn-login,
@@ -22,6 +36,11 @@
 .active {
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+.navbar-collapse {
+  z-index: 999;
+  background-color: white;
 }
 
 @media only screen and (max-width: 991px) {
