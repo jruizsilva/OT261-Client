@@ -4,6 +4,7 @@ import NavBar from './Components/NavBar/NavBar'
 import Routing from './router'
 
 import './App.css'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Container fluid>
         <Routing />
       </Container>
+      <Footer />
     </>
   )
 }
