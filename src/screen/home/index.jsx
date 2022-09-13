@@ -32,7 +32,7 @@ return (
         <h4>Nuestro Staff</h4>
         <Link to="/about">Ver todos {'>'}</Link>
       </div>
-      <StaffCardsList staff_members={icons.staff_members.slice(0, 6)} />
+      <StaffCardsList staff_members={icons.staff_members.slice(1, 6)} />
     </div>
     <div className="home-testimonials-section">
       <div className="section-title">

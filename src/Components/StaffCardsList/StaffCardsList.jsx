@@ -5,7 +5,6 @@ const StaffCardsList = ({staff_members}) => {
   return (
       <StaffCardsListStyles>
         {staff_members.map(({ image, id }) => {
-          if (id === 1) return null;
           return (
             <StaffCard
               key={id}

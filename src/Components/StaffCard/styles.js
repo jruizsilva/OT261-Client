@@ -12,6 +12,7 @@ const StaffCardStyle = styled.li`
   border-radius: 1.25rem;
   padding: 1.125rem 0.75rem;
   background-image: url(${({ bg }) => bg});
+  background-size: contain;
   display: flex;
   flex-direction: column;
 

@@ -66,9 +66,11 @@ const About = () => {
           </StyledRightWrapper>
         )}
       </StyledMemberContainer>
-      <StaffCardsList staff_members={icons.staff_members} />
+      <StaffCardsList
+        staff_members={icons.staff_members.slice(1, icons.staff_members.length)}
+      />
     </StyledAboutContainer>
-  )
+  );
 }
 
 export default About
