@@ -1,4 +1,11 @@
-/* Utilizar styled-componentes ↓↓ */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+#root {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
 .page-enter {
   opacity: 0;
