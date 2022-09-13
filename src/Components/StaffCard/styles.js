@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 const StaffCardStyle = styled.li`
-  width: ${({ isUpper768px }) => (isUpper768px ? '13.25rem' : '11.25rem')};
-  height: ${({ isUpper768px }) => (isUpper768px ? '14.625rem' : '12.5rem')};
+  width: 11.25rem;
+  height: 12.5rem;
+  @media screen and (min-width: 768px) {
+    width: 13.25rem;
+    height: 14.625rem;
+  }
+
   background-color: #ccc;
   border-radius: 1.25rem;
   padding: 1.125rem 0.75rem;
