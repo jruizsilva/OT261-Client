@@ -20,7 +20,6 @@ import { initialValues, validationSchema } from './const'
 import { loginAsync } from '../../store/slice/user'
 import { useDispatch } from 'react-redux'
 import { loginFields } from './const'
-import { instance } from '../../Services/apiServices'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
@@ -34,9 +33,6 @@ const Login = () => {
       dispatch(loginAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
-      console.log(values)
-      // const response = await instance.post('/auth/login', values)
-      // console.log(response)
     }
   })
 

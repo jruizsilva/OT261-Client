@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Swal from 'sweetalert2'
+import { httpAxiosInstance } from '../../Services/httpAxiosInstance'
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: {},
-    isAdmin: true,
+    isAdmin: true
   },
   reducers: {
     login: (state, action) => {
@@ -13,15 +14,14 @@ export const userSlice = createSlice({
     },
     register: (state, action) => {
       return { ...state }
-    },
-  },
+    }
+  }
 })
 
 /* ======================
    Acciones asincronas ↓↓
    ====================== */
-export const loginAsync = values => dispatch => {
-  // const { email, password } = values
+export const loginAsync = values => async dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
@@ -29,8 +29,15 @@ export const loginAsync = values => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    },
+    }
   })
+
+  try {
+    const response = await httpAxiosInstance.post('/auth/login', values)
+    console.dir(response)
+  } catch (error) {
+    console.dir(error.response.data.errors)
+  }
   /* ======================
        Simulo una peticion a un endpoint con setTimeout ↓↓
        ====================== */
@@ -43,7 +50,7 @@ export const loginAsync = values => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      },
+      }
     })
   }, 500)
 }
@@ -56,7 +63,7 @@ export const registerAsync = values => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    },
+    }
   })
   /* ======================
        Simulo una peticion a un endpoint con setTimeout ↓↓
@@ -70,7 +77,7 @@ export const registerAsync = values => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      },
+      }
     })
   }, 500)
 }
