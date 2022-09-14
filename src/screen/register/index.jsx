@@ -13,7 +13,7 @@ import {
   StyledImage,
   StyledImageContainer,
   StyledBox,
-  StyledErrorText,
+  StyledErrorText
 } from './styles'
 import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
@@ -33,7 +33,7 @@ const Login = () => {
       dispatch(registerAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
-    },
+    }
   })
 
   return (
@@ -45,8 +45,8 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>¡Registrate!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          {registerFields.map(({ name, placeholder }) => (
-            <StyledBox>
+          {registerFields.map(({ name, placeholder, id }) => (
+            <StyledBox key={id}>
               <StyledInput
                 name={name}
                 placeholder={placeholder}

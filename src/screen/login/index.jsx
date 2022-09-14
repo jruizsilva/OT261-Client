@@ -13,13 +13,14 @@ import {
   StyledImage,
   StyledImageContainer,
   StyledBox,
-  StyledErrorText,
+  StyledErrorText
 } from './styles'
 import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
 import { loginAsync } from '../../store/slice/user'
 import { useDispatch } from 'react-redux'
 import { loginFields } from './const'
+import { instance } from '../../Services/apiServices'
 
 const Login = () => {
   const { currentWidth } = useCurrentWidth()
@@ -29,11 +30,13 @@ const Login = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: values => {
+    onSubmit: async values => {
       dispatch(loginAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
-    },
+      // const response = await instance.post('/auth/login', values)
+      // console.log(response)
+    }
   })
 
   return (
@@ -45,8 +48,8 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          {loginFields.map(({ name, placeholder }) => (
-            <StyledBox>
+          {loginFields.map(({ name, placeholder, id }) => (
+            <StyledBox key={id}>
               <StyledInput
                 name={name}
                 placeholder={placeholder}
