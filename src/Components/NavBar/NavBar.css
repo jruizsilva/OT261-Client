@@ -8,13 +8,9 @@
   background-color: white;
 }
 
-.navbrand-disabled {
-  pointer-events: none;
-}
-
-.btn-register {
-  background-color: #c20808;
-  border-color: #c20808;
+.btn-rojo {
+  background-color: #a80707 !important;
+  border-color: #a80707 !important;
   margin-inline: 10px;
   padding-inline: 23px;
 }
@@ -24,7 +20,7 @@
 }
 
 .btn-login,
-.btn-register {
+.btn-rojo {
   border-radius: 15px !important;
   box-shadow: 1px 1px 1px 1px rgba(1, 0, 0, 0.2);
 }
@@ -49,7 +45,7 @@
   }
 
   .btn-login,
-  .btn-register {
+  .btn-rojo {
     margin-right: auto;
     margin-left: auto;
     width: 85%;

@@ -1,8 +1,6 @@
 import {
   StyledAboutContainer,
-  StyledItem,
   StyledLeftWrapper,
-  StyledList,
   StyledMemberButton,
   StyledMemberContainer,
   StyledMemberDescription,
@@ -10,13 +8,12 @@ import {
   StyledMemberMobileImage,
   StyledMemberRole,
   StyledMemberTitle,
-  StyledName,
   StyledRightWrapper,
-  StyledRole,
   StyledTitle,
 } from './styles'
 import { icons } from '../../assets'
 import { useCurrentWidth, useIsUpperBreakpoint } from '../../hooks'
+import StaffCardsList from '../../Components/StaffCardsList/StaffCardsList'
 
 const About = () => {
   const { currentWidth } = useCurrentWidth()
@@ -69,19 +66,11 @@ const About = () => {
           </StyledRightWrapper>
         )}
       </StyledMemberContainer>
-      <StyledList isUpper768px={isUpper768px}>
-        {icons.staff_members.map(({ image, id }) => {
-          if (id === 1) return null
-          return (
-            <StyledItem isUpper768px={isUpper768px} key={id} bg={image}>
-              <StyledName>Julian Fernandez</StyledName>
-              <StyledRole>Ceo / CoFounder</StyledRole>
-            </StyledItem>
-          )
-        })}
-      </StyledList>
+      <StaffCardsList
+        staff_members={icons.staff_members.slice(1, icons.staff_members.length)}
+      />
     </StyledAboutContainer>
-  )
+  );
 }
 
 export default About

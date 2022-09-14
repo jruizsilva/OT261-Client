@@ -46,11 +46,7 @@ const NavBar = () => {
           >
             Iniciar Sesión
           </Button>
-          <Button
-            as={Link}
-            className="btn-register"
-            to="/register"
-          >
+          <Button as={Link} className="btn-rojo" to="/register">
             Regístrate
           </Button>
         </Nav>
