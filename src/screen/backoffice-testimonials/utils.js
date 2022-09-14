@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async function () {
-      try {
-        setLoading(true);
-        const response = await axios.get(url);
-        // console.log(response.data.results);
-        setData(response.data.results);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [url]);
-
-  return { data, error, loading };
-};
-
-export default useFetch;
+export const usersTestimonials = [
+  {
+    name: "Jhon",
+    lastname: "Doe",
+    testimonial:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    name: "Jane",
+    lastname: "Doe",
+    testimonial:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    name: "Sarah",
+    lastname: "Connor",
+    testimonial:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    name: "Steve",
+    lastname: "Miller",
+    testimonial:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+];
