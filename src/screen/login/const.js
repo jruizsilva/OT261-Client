@@ -15,7 +15,7 @@ const initialValues = {
 }
 const loginFields = [
   { name: 'email', placeholder: 'Email', id: 1 },
-  { name: 'password', placeholder: 'Password', id: 2 }
+  { name: 'password', placeholder: 'Password', id: 2, type: 'password' }
 ]
 
 export { validationSchema, initialValues, loginFields }

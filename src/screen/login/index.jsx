@@ -34,6 +34,7 @@ const Login = () => {
       dispatch(loginAsync(values))
       formik.resetForm()
       formik.setSubmitting(false)
+      console.log(values)
       // const response = await instance.post('/auth/login', values)
       // console.log(response)
     }
@@ -48,14 +49,14 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>Inicia sesión en tu cuenta!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          {loginFields.map(({ name, placeholder, id }) => (
+          {loginFields.map(({ id, type, name, placeholder }) => (
             <StyledBox key={id}>
               <StyledInput
                 name={name}
                 placeholder={placeholder}
                 ismobile={ismobile}
                 autoComplete='off'
-                type='text'
+                type={type ? type : 'text'}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values[name]}
