@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Row, Stack, Col } from "react-bootstrap";
-
 import { adminCardList, userCardList } from "./consts";
 import { StyledContainer } from "./styles";
 import { CardBackoffice } from "../../Components/CardBackoffice";

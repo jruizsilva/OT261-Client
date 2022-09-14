@@ -7,6 +7,7 @@ import organization from './organization.svg'
 import slides from './slides.svg'
 import users from './users.svg'
 import edit from './edit.svg'
+import login from './login.svg'
 import member_1 from './member_1.svg'
 import member_2 from './member_2.svg'
 import member_3 from './member_3.svg'
@@ -19,6 +20,15 @@ import member_9 from './member_9.svg'
 import member_10 from './member_10.svg'
 import member_11 from './member_11.svg'
 
+import testimonial_1 from './testimonial_1.svg';
+import testimonial_2 from './testimonial_2.svg';
+import testimonial_3 from './testimonial_3.svg';
+import testimonial_4 from './testimonial_4.svg';
+import testimonial_5 from './testimonial_5.svg';
+
+import news_1 from './news_1.svg';
+import news_2 from './news_2.svg';
+
 const icons = {
   news,
   activities,
@@ -29,6 +39,7 @@ const icons = {
   slides,
   users,
   edit,
+  login,
   staff_members: [
     { image: member_1, id: 1 },
     { image: member_2, id: 2 },
@@ -42,6 +53,17 @@ const icons = {
     { image: member_10, id: 10 },
     { image: member_11, id: 11 },
   ],
-}
+  testimonials_imgs: [
+    { image: testimonial_1, id: 1 },
+    { image: testimonial_2, id: 2 },
+    { image: testimonial_3, id: 3 },
+    { image: testimonial_4, id: 4 },
+    { image: testimonial_5, id: 5 },
+  ],
+  news_imgs: [
+    { image: news_1, id: 1 },
+    { image: news_2, id: 2 },
+  ]
+};
 
 export { icons }

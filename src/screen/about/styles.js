@@ -66,53 +66,6 @@ const StyledMemberButton = styled('button')`
   margin-top: ${({ isUpper768px }) => (isUpper768px ? 'auto' : '1.5rem')};
 `
 
-const StyledList = styled('ul')`
-  max-width: ${({ isUpper768px }) => (isUpper768px ? '81rem' : '25rem')};
-  margin: 0 auto;
-  display: flex;
-  justify-content: ${({ isUpper768px }) =>
-    isUpper768px ? 'space-between' : 'center'};
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 0;
-  margin-bottom: 4rem;
-`
-
-const StyledItem = styled('li')`
-  width: ${({ isUpper768px }) => (isUpper768px ? '13.25rem' : '11.25rem')};
-  height: ${({ isUpper768px }) => (isUpper768px ? '14.625rem' : '12.5rem')};
-  background-color: #ccc;
-  border-radius: 1.25rem;
-  padding: 1.125rem 0.75rem;
-  background-image: url(${({ bg }) => bg});
-  display: flex;
-  flex-direction: column;
-`
-
-const StyledName = styled('p')`
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-  font-family: var(--font-mulish);
-  text-transform: capitalize;
-  margin: 0;
-  color: white;
-  text-align: center;
-  margin-top: auto;
-  letter-spacing: -0.015em;
-`
-
-const StyledRole = styled('p')`
-  font-size: 1rem;
-  line-height: 1rem;
-  letter-spacing: -0.015em;
-  font-weight: 600;
-  font-family: var(--font-mulish);
-  margin: 0;
-  color: white;
-  text-align: center;
-`
-
 const StyledMemberMobileImage = styled('img')`
   width: 12.5rem;
   height: 12.5rem;
@@ -138,10 +91,6 @@ export {
   StyledMemberButton,
   StyledMemberMobileImage,
   StyledMemberDesktopImage,
-  StyledList,
-  StyledItem,
-  StyledName,
-  StyledRole,
   StyledLeftWrapper,
   StyledRightWrapper,
 }

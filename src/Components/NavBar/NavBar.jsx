@@ -12,16 +12,17 @@ const NavBar = () => {
   useEffect(() => {
     setUrl(locate.pathname);
   }, [locate]);
-
   return (
     <Navbar collapseOnSelect expand="lg" bg="ligth" className="p-0 navbar">
       <Navbar.Brand className="ms-3 p-0">
-        <img
-          src="https://res.cloudinary.com/dwtkwakbc/image/upload/v1660770518/LOGO-SOMOS_MAS_uyr5wi.png"
-          width="100"
-          height="100"
-          alt="logo"
-        />
+        <Link to="/" className={url === '/' ? 'navbrand-disabled' : ''}>
+          <img
+            src="https://res.cloudinary.com/dwtkwakbc/image/upload/v1660770518/LOGO-SOMOS_MAS_uyr5wi.png"
+            width="100"
+            height="100"
+            alt="logo"
+          />
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav " />
       <Navbar.Collapse>
@@ -32,6 +33,7 @@ const NavBar = () => {
               to={link.url}
               className={url === link.url ? 'active' : ''}
               key={link.url}
+              disabled={url === link.url}
             >
               {link.name}
             </Nav.Link>
@@ -44,7 +46,7 @@ const NavBar = () => {
           >
             Iniciar Sesión
           </Button>
-          <Button as={Link} className="btn-register" to="/register">
+          <Button as={Link} className="btn-rojo" to="/register">
             Regístrate
           </Button>
         </Nav>
