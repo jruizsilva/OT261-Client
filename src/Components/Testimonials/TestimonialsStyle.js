@@ -6,27 +6,50 @@ export const Container = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: #edf2f7;
+  background-color: #ffff;
 `;
-
+export const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+  height: 100vh;
+  gap: 20px;
+  margin: 3rem 1rem;
+`;
+export const RightContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100vh;
+`;
+export const Image = styled.img`
+  width: 90%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  border-radius: 20px;
+  object-fit: cover;
+`;
 export const FromWrapper = styled.div`
-  width: 40%;
-  height: 70%;
-  margin-top: 5%;
-  background: white;
-  border: 1px solid #edf2f7;
+  width: 100%;
+  height: auto;
   border-radius: 20px;
 `;
 export const TitleContainer = styled.div`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 export const Title = styled.h3`
-  font-weight: 300;
-  font-size: 2rem;
+  font-weight: 600;
+  font-size: 48px;
 `;
 export const Form = styled.form`
   display: flex;

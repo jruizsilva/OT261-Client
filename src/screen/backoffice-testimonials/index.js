@@ -56,7 +56,7 @@ const BackofficeTestimonials = () => {
         ) : null}
 
         <ButtonsWrapper>
-          <AddTestimonial onClick={() => setOpenCreateModal(true)}>
+          <AddTestimonial to="add-testimonials">
             Agregar mi testimonio!
           </AddTestimonial>
           <BackToHome to="/">Ir al inicio</BackToHome>

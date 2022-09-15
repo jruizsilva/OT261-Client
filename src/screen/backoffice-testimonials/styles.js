@@ -115,7 +115,10 @@ export const ButtonsWrapper = styled.div`
   align-items: flex-start;
   justify-content: space-evenly;
 `;
-export const AddTestimonial = styled.button`
+export const AddTestimonial = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20%;
   height: 70px;
   border: none;
@@ -124,11 +127,13 @@ export const AddTestimonial = styled.button`
   font-size: 130%;
   background-color: #ff0000;
   color: white;
+  text-decoration: none;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &:focus,
   &:hover {
     background-color: #c12222;
+    color: white;
   }
   @media (max-width: 1200px) {
     width: 30%;
