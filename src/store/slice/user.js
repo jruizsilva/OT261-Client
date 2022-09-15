@@ -15,6 +15,9 @@ export const userSlice = createSlice({
     },
     register: (state, action) => {
       return { ...state }
+    },
+    logout: (state, action) => {
+      return { ...state, user: null }
     }
   }
 })
@@ -90,10 +93,18 @@ export const registerAsync = values => dispatch => {
     })
   }, 500)
 }
+export const logoutAsync = () => dispatch => {
+  try {
+    localStorage.removeItem('token')
+    dispatch(logout())
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 /* ======================
    Acciones sincronas ↓↓
    ====================== */
-export const { login, register } = userSlice.actions
+export const { login, register, logout } = userSlice.actions
 
 export default userSlice.reducer

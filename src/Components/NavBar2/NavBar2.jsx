@@ -3,8 +3,17 @@ import { Nav, Navbar, Button } from 'react-bootstrap'
 
 import './NavBar.css'
 import navBarLinks from './navBarLinks'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutAsync } from '../../store/slice/user'
 
 const NavBar2 = () => {
+  const { user } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logoutAsync())
+  }
+
   return (
     <Navbar collapseOnSelect expand='lg' bg='ligth' className='p-0 navbar'>
       <Navbar.Brand className='ms-3 p-0'>
@@ -37,17 +46,34 @@ const NavBar2 = () => {
               {link.name}
             </Nav.Link>
           ))}
-          <Button
-            as={NavLink}
-            className='btn-login'
-            variant='outline-dark'
-            to='/login'
-          >
-            Iniciar Sesión
-          </Button>
-          <Button as={NavLink} className='btn-rojo' to='/register'>
-            Regístrate
-          </Button>
+          {!user && (
+            <>
+              <Button
+                as={NavLink}
+                className='btn-login'
+                variant='outline-dark'
+                to='/login'
+              >
+                Iniciar Sesión
+              </Button>
+              <Button as={NavLink} className='btn-rojo' to='/register'>
+                Regístrate
+              </Button>
+            </>
+          )}
+          {user && (
+            <>
+              <Button
+                as={NavLink}
+                className='btn-login'
+                variant='outline-dark'
+                to='/login'
+                onClick={handleLogout}
+              >
+                Cerrar Sesión
+              </Button>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
