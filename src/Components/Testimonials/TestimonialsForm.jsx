@@ -51,15 +51,23 @@ const TestimonialForm = () => {
 
   const inputHandler = (event, editor) => {
     setFieldValue("description", editor.getData());
+    editor.editing.view.change((writer) => {
+      writer.setStyle(
+        "height",
+        "100px",
+        editor.editing.view.document.getRoot()
+      );
+    });
   };
 
   return (
-    <Container>
-      <LeftContainer>
-        <TitleContainer>
-          <Title>Create a Testimonial</Title>
-        </TitleContainer>
+    <>
+      <TitleContainer>
+        <Title>Create a Testimonial</Title>
+      </TitleContainer>
+      <Container>
         <FromWrapper>
+          {/* <LeftContainer> */}
           <Form className="form-container" onSubmit={handleSubmit}>
             {isSubmitting ? <p id="success-message"></p> : null}
             <FromGroup>
@@ -78,16 +86,9 @@ const TestimonialForm = () => {
             </FromGroup>
             <FromGroup>
               <Label htmlFor="description">Description</Label>
-              <CKEditor
-                className={
-                  errors.description && touched.description ? "input-error" : ""
-                }
-                editor={ClassicEditor}
-                onChange={inputHandler}
-                id="description"
-                type="description"
-                placeholder="Enter your description"
-              />
+
+              <CKEditor editor={ClassicEditor} onChange={inputHandler} />
+
               {errors.description && touched.description && (
                 <ErrorMessage>{errors.description}</ErrorMessage>
               )}
@@ -97,12 +98,13 @@ const TestimonialForm = () => {
               Send Testimonial
             </Button>
           </Form>
+          {/* </LeftContainer> */}
         </FromWrapper>
-      </LeftContainer>
-      <RightContainer>
-        <Image src="/images/project-love.jpg" alt="addTestimonialImage" />
-      </RightContainer>
-    </Container>
+        <RightContainer>
+          <Image src="/images/project-love.jpg" alt="addTestimonialImage" />
+        </RightContainer>
+      </Container>
+    </>
   );
 };
 
