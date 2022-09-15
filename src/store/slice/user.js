@@ -49,11 +49,12 @@ export const loginAsync = values => async dispatch => {
       }
     })
   } catch (error) {
-    const errorMessage = error.response.data.errors[0].msg
+    const errorMessage =
+      error.response?.data?.errors[0]?.msg || 'Error al iniciár sesión'
     Swal.close()
     Swal.fire({
       title: 'Credenciales inválidas!',
-      text: errorMessage || 'Error al iniciár sesión',
+      text: errorMessage,
       icon: 'error',
       didOpen: () => {
         Swal.hideLoading()
