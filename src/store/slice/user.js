@@ -6,11 +6,12 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: null,
-    isAdmin: true
+    isAdmin: false
   },
   reducers: {
     login: (state, action) => {
-      return { ...state, user: action.payload }
+      const user = action.payload
+      return { ...state, user, isAdmin: user.roleId === 2 }
     },
     register: (state, action) => {
       return { ...state }
