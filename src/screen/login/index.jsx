@@ -25,6 +25,8 @@ import { Navigate } from 'react-router-dom'
 const Login = () => {
   const { user } = useSelector(state => state.user)
 
+  console.log(user)
+
   const { currentWidth } = useCurrentWidth()
   const { ismobile } = useMobile(currentWidth)
   const dispatch = useDispatch()

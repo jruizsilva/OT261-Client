@@ -5,11 +5,13 @@ import Routing from './router'
 
 import './App.css'
 import Footer from './Components/Footer/Footer'
+import NavBar2 from './Components/NavBar2/NavBar2'
 
 function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
+      <NavBar2 />
       <Container fluid>
         <Routing />
       </Container>
