@@ -6,13 +6,12 @@ import { login } from '../store/slice/user'
 
 const useAuth = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const { user } = useSelector(state => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (token && !user) {
-      setLoading(true)
       httpAxiosInstance
         .get('/auth')
         .then(response => {
@@ -24,6 +23,8 @@ const useAuth = () => {
           console.dir(err)
           setLoading(false)
         })
+    } else {
+      setLoading(false)
     }
   }, [token, user, dispatch])
 
