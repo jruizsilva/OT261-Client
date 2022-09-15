@@ -94,12 +94,8 @@ export const registerAsync = values => dispatch => {
   }, 500)
 }
 export const logoutAsync = () => dispatch => {
-  try {
-    localStorage.removeItem('token')
-    dispatch(logout())
-  } catch (error) {
-    console.log(error)
-  }
+  localStorage.removeItem('token')
+  dispatch(logout())
 }
 
 /* ======================

@@ -64,10 +64,8 @@ const NavBar2 = () => {
           {user && (
             <>
               <Button
-                as={NavLink}
                 className='btn-login'
                 variant='outline-dark'
-                to='/login'
                 onClick={handleLogout}
               >
                 Cerrar Sesión
