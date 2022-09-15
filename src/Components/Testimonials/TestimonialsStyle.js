@@ -2,30 +2,26 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 90%;
-  height: 500px;
+  height: 400px;
   margin: 2rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffff;
+  @media screen and (max-width: 580px) {
+    height: 350px;
+  }
 `;
 
-export const LeftContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 50%;
-  height: 100vh;
-  gap: 20px;
-  margin: 3rem 1rem;
-`;
 export const RightContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
-  height: 100vh;
+  height: auto;
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
 `;
 export const Image = styled.img`
   width: 100%;
@@ -38,11 +34,17 @@ export const Image = styled.img`
 `;
 export const FromWrapper = styled.div`
   width: 50%;
-  height: 100vh;
+  height: auto;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 1100px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 export const TitleContainer = styled.div`
   width: 90%;
@@ -51,22 +53,38 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media screen and (max-width: 580px) {
+    align-items: flex-end;
+    justify-content: center;
+  }
 `;
 export const Title = styled.h3`
   font-family: Poppins, sans-serif;
   font-weight: 600;
   font-size: 48px;
   margin-top: 1rem;
+  @media screen and (max-width: 768px) {
+    font-size: 38px;
+  }
+  @media screen and (max-width: 580px) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 24px;
+  }
 `;
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 80%;
-  height: 100%;
+  height: auto;
   gap: 20px;
   align-items: inherit;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  } ;
 `;
 export const FromGroup = styled.div`
   width: 100%;
@@ -79,6 +97,9 @@ export const Label = styled.label`
   font-size: 1.2rem;
   font-weight: 400;
   margin: 0.5rem 0rem;
+  @media screen and (max-width: 580px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Input = styled.input`

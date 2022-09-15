@@ -8,7 +8,6 @@ import {
   Container,
   RightContainer,
   Image,
-  LeftContainer,
   FromWrapper,
   Label,
   Form,
@@ -67,7 +66,6 @@ const TestimonialForm = () => {
       </TitleContainer>
       <Container>
         <FromWrapper>
-          {/* <LeftContainer> */}
           <Form className="form-container" onSubmit={handleSubmit}>
             {isSubmitting ? <p id="success-message"></p> : null}
             <FromGroup>
@@ -98,7 +96,6 @@ const TestimonialForm = () => {
               Send Testimonial
             </Button>
           </Form>
-          {/* </LeftContainer> */}
         </FromWrapper>
         <RightContainer>
           <Image src="/images/project-love.jpg" alt="addTestimonialImage" />
