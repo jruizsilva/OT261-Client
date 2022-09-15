@@ -31,8 +31,6 @@ const Login = () => {
     validationSchema,
     onSubmit: async values => {
       dispatch(loginAsync(values))
-      formik.resetForm()
-      formik.setSubmitting(false)
     }
   })
 

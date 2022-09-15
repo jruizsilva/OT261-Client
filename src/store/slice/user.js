@@ -5,12 +5,12 @@ import { httpAxiosInstance } from '../../Services/httpAxiosInstance'
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
+    user: null,
     isAdmin: true
   },
   reducers: {
     login: (state, action) => {
-      return { ...state }
+      return { ...state, user: action.payload }
     },
     register: (state, action) => {
       return { ...state }
@@ -34,15 +34,8 @@ export const loginAsync = values => async dispatch => {
 
   try {
     const response = await httpAxiosInstance.post('/auth/login', values)
-    console.dir(response)
-  } catch (error) {
-    console.dir(error.response.data.errors)
-  }
-  /* ======================
-       Simulo una peticion a un endpoint con setTimeout ↓↓
-       ====================== */
-  setTimeout(() => {
-    dispatch(login())
+    const user = response.data.data
+    dispatch(login(user))
     Swal.close()
     Swal.fire({
       title: 'Credenciales válidas!',
@@ -52,7 +45,18 @@ export const loginAsync = values => async dispatch => {
         Swal.hideLoading()
       }
     })
-  }, 500)
+  } catch (error) {
+    const errorMessage = error.response.data.errors[0].msg
+    Swal.close()
+    Swal.fire({
+      title: 'Credenciales inválidas!',
+      text: errorMessage || 'Error al iniciár sesión',
+      icon: 'error',
+      didOpen: () => {
+        Swal.hideLoading()
+      }
+    })
+  }
 }
 export const registerAsync = values => dispatch => {
   const { name, surname, email, password } = values

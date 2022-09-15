@@ -11,6 +11,7 @@ import Login from '../screen/login'
 import Register from '../screen/register'
 import About from '../screen/about'
 import Contact from '../screen/contact'
+import { RequireAuth } from './RequireAuth'
 
 const Routing = () => {
   const location = useLocation()
