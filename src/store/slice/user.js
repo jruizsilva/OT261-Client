@@ -34,7 +34,10 @@ export const loginAsync = values => async dispatch => {
 
   try {
     const response = await httpAxiosInstance.post('/auth/login', values)
-    const user = response.data.data
+    console.log(response)
+    const user = response.data.data.user
+    const token = response.data.data.token
+    localStorage.setItem('token', JSON.stringify(token))
     dispatch(login(user))
     Swal.close()
     Swal.fire({
