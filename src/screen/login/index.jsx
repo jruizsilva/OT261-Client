@@ -32,7 +32,7 @@ const Login = () => {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async values => {
+    onSubmit: values => {
       dispatch(loginAsync(values))
     }
   })

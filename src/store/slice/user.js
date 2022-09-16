@@ -53,6 +53,7 @@ export const loginAsync = values => async dispatch => {
       }
     })
   } catch (error) {
+    console.dir(error)
     const errorMessage =
       error.response?.data?.errors[0]?.msg || 'Error al iniciár sesión'
     Swal.close()
@@ -66,8 +67,7 @@ export const loginAsync = values => async dispatch => {
     })
   }
 }
-export const registerAsync = values => dispatch => {
-  const { name, surname, email, password } = values
+export const registerAsync = values => async dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
@@ -77,11 +77,10 @@ export const registerAsync = values => dispatch => {
       Swal.showLoading()
     }
   })
-  /* ======================
-       Simulo una peticion a un endpoint con setTimeout ↓↓
-       ====================== */
-  setTimeout(() => {
-    dispatch(register())
+  try {
+    const response = await httpAxiosInstance.post('/auth/register', values)
+    console.log(response)
+    // dispatch(register(user))
     Swal.close()
     Swal.fire({
       title: 'Usuario registrado!',
@@ -91,7 +90,20 @@ export const registerAsync = values => dispatch => {
         Swal.hideLoading()
       }
     })
-  }, 500)
+  } catch (error) {
+    console.dir(error)
+    const errorMessage =
+      error.response?.data?.errors[0]?.msg || 'Error al iniciár sesión'
+    Swal.close()
+    Swal.fire({
+      title: 'Error al crear la cuenta!',
+      text: errorMessage,
+      icon: 'error',
+      didOpen: () => {
+        Swal.hideLoading()
+      }
+    })
+  }
 }
 export const logoutAsync = () => dispatch => {
   localStorage.removeItem('token')

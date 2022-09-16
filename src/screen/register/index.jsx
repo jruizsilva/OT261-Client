@@ -31,8 +31,6 @@ const Login = () => {
     validationSchema,
     onSubmit: values => {
       dispatch(registerAsync(values))
-      formik.resetForm()
-      formik.setSubmitting(false)
     }
   })
 
@@ -45,17 +43,17 @@ const Login = () => {
         <StyledWelcomeText>Bienvenido</StyledWelcomeText>
         <StyledTitle>¡Registrate!</StyledTitle>
         <StyledForm onSubmit={formik.handleSubmit}>
-          {registerFields.map(({ name, placeholder, id }) => (
+          {registerFields.map(({ id, name, placeholder, type }) => (
             <StyledBox key={id}>
               <StyledInput
                 name={name}
                 placeholder={placeholder}
                 autoComplete='off'
                 ismobile={ismobile}
-                type='text'
+                type={type ? type : 'text'}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.name}
+                value={formik.values[name]}
               />
               {formik.touched[name] && formik.errors[name] && (
                 <StyledErrorText>{formik.errors[name]}</StyledErrorText>
@@ -69,7 +67,7 @@ const Login = () => {
               Object.entries(formik.errors).length > 0 || formik.isSubmitting
             }
           >
-            Inicia sesión
+            Crear cuenta
           </StyledButton>
         </StyledForm>
         <StyledText>
