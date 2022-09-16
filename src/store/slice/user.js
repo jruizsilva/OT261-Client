@@ -14,7 +14,8 @@ export const userSlice = createSlice({
       return { ...state, user, isAdmin: user.roleId === 2 }
     },
     register: (state, action) => {
-      return { ...state }
+      const user = action.payload
+      return { ...state, user, isAdmin: user.roleId === 2 }
     },
     logout: (state, action) => {
       return { ...state, user: null }
@@ -38,9 +39,7 @@ export const loginAsync = values => async dispatch => {
 
   try {
     const response = await httpAxiosInstance.post('/auth/login', values)
-    console.log(response)
-    const user = response.data.data.user
-    const token = response.data.data.token
+    const { user, token } = response.data.data
     localStorage.setItem('token', JSON.stringify(`Bearer ${token}`))
     dispatch(login(user))
     Swal.close()
@@ -79,8 +78,9 @@ export const registerAsync = values => async dispatch => {
   })
   try {
     const response = await httpAxiosInstance.post('/auth/register', values)
-    console.log(response)
-    // dispatch(register(user))
+    const { user, token } = response.data.data
+    localStorage.setItem('token', JSON.stringify(`Bearer ${token}`))
+    dispatch(register(user))
     Swal.close()
     Swal.fire({
       title: 'Usuario registrado!',
