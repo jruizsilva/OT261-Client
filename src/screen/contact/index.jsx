@@ -14,13 +14,13 @@ import {
   StyledFormContainer,
   StyledHomeButton,
   StyledInput,
-  StyledWrapper,
+  StyledWrapper
 } from './styles'
 
 const Contact = () => {
   const formik = useFormik({
     validationSchema,
-    initialValues,
+    initialValues
   })
 
   return (
@@ -33,8 +33,8 @@ const Contact = () => {
         <StyledContactTitle>¡Contactate con nosotros!</StyledContactTitle>
         <StyledFormContainer>
           <StyledForm>
-            {contactFields.map(({ name, placeholder }) => (
-              <StyledBox>
+            {contactFields.map(({ name, placeholder, id }) => (
+              <StyledBox key={id}>
                 <StyledInput
                   name={name}
                   placeholder={placeholder}

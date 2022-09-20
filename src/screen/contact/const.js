@@ -11,19 +11,19 @@ const validationSchema = Yup.object().shape({
   description: Yup.string()
     .min(6, 'Debe tener mínimo 6 caracteres')
     .max(254, 'Debe tener máximo 254 caracteres')
-    .required('La contraseña es requerida'),
+    .required('La contraseña es requerida')
 })
 
 const initialValues = {
   fullname: '',
   email: '',
-  description: '',
+  description: ''
 }
 
 const contactFields = [
-  { name: 'fullname', placeholder: 'Nombre y Apellido' },
-  { name: 'email', placeholder: 'Email' },
-  { name: 'description', placeholder: 'Escribe tu consulta...' },
+  { name: 'fullname', placeholder: 'Nombre y Apellido', id: 1 },
+  { name: 'email', placeholder: 'Email', id: 2 },
+  { name: 'description', placeholder: 'Escribe tu consulta...', id: 3 }
 ]
 
 export { validationSchema, initialValues, contactFields }

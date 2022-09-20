@@ -13,15 +13,18 @@ import {
   StyledImage,
   StyledImageContainer,
   StyledBox,
-  StyledErrorText,
+  StyledErrorText
 } from './styles'
 import { icons } from '../../assets'
 import { initialValues, validationSchema } from './const'
 import { registerAsync } from '../../store/slice/user'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { registerFields } from './const'
+import { Navigate } from 'react-router-dom'
 
 const Login = () => {
+  const { user } = useSelector(state => state.user)
+
   const { currentWidth } = useCurrentWidth()
   const { ismobile } = useMobile(currentWidth)
   const dispatch = useDispatch()
@@ -31,58 +34,60 @@ const Login = () => {
     validationSchema,
     onSubmit: values => {
       dispatch(registerAsync(values))
-      formik.resetForm()
       formik.setSubmitting(false)
-    },
+    }
   })
 
   return (
-    <StackContainer
-      direction={ismobile === 'true' ? 'vertical' : 'horizontal'}
-      ismobile={ismobile}
-    >
-      <StyledFormContainer ismobile={ismobile}>
-        <StyledWelcomeText>Bienvenido</StyledWelcomeText>
-        <StyledTitle>¡Registrate!</StyledTitle>
-        <StyledForm onSubmit={formik.handleSubmit}>
-          {registerFields.map(({ name, placeholder }) => (
-            <StyledBox>
-              <StyledInput
-                name={name}
-                placeholder={placeholder}
-                autoComplete='off'
-                ismobile={ismobile}
-                type='text'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.name}
-              />
-              {formik.touched[name] && formik.errors[name] && (
-                <StyledErrorText>{formik.errors[name]}</StyledErrorText>
-              )}
-            </StyledBox>
-          ))}
-          <StyledButton
-            type='submit'
-            ismobile={ismobile}
-            disabled={
-              Object.entries(formik.errors).length > 0 || formik.isSubmitting
-            }
-          >
-            Inicia sesión
-          </StyledButton>
-        </StyledForm>
-        <StyledText>
-          ¿Ya tienes una cuenta?
-          <StyledRegisterText to='/login'>Inicia sesión</StyledRegisterText>
-        </StyledText>
-      </StyledFormContainer>
-      {ismobile !== 'true' && (
-        <StyledImageContainer ismobile={ismobile}>
-          <StyledImage src={icons.login} alt='login screen' />
-        </StyledImageContainer>
-      )}
-    </StackContainer>
+    <>
+      {user && <Navigate to='/' />}
+      <StackContainer
+        direction={ismobile === 'true' ? 'vertical' : 'horizontal'}
+        ismobile={ismobile}
+      >
+        <StyledFormContainer ismobile={ismobile}>
+          <StyledWelcomeText>Bienvenido</StyledWelcomeText>
+          <StyledTitle>¡Registrate!</StyledTitle>
+          <StyledForm onSubmit={formik.handleSubmit}>
+            {registerFields.map(({ id, name, placeholder, type }) => (
+              <StyledBox key={id}>
+                <StyledInput
+                  name={name}
+                  placeholder={placeholder}
+                  autoComplete='off'
+                  ismobile={ismobile}
+                  type={type ? type : 'text'}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values[name]}
+                />
+                {formik.touched[name] && formik.errors[name] && (
+                  <StyledErrorText>{formik.errors[name]}</StyledErrorText>
+                )}
+              </StyledBox>
+            ))}
+            <StyledButton
+              type='submit'
+              ismobile={ismobile}
+              disabled={
+                Object.entries(formik.errors).length > 0 || formik.isSubmitting
+              }
+            >
+              Crear cuenta
+            </StyledButton>
+          </StyledForm>
+          <StyledText>
+            ¿Ya tienes una cuenta?
+            <StyledRegisterText to='/login'>Inicia sesión</StyledRegisterText>
+          </StyledText>
+        </StyledFormContainer>
+        {ismobile !== 'true' && (
+          <StyledImageContainer ismobile={ismobile}>
+            <StyledImage src={icons.login} alt='login screen' />
+          </StyledImageContainer>
+        )}
+      </StackContainer>
+    </>
   )
 }
 

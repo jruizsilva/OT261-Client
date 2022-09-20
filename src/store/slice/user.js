@@ -1,27 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 import Swal from 'sweetalert2'
+import { httpAxiosInstance } from '../../Services/httpAxiosInstance'
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    user: {},
-    isAdmin: true,
+    user: null,
+    isAdmin: false
   },
   reducers: {
     login: (state, action) => {
-      return { ...state }
+      const user = action.payload
+      return { ...state, user, isAdmin: user.roleId === 2 }
     },
     register: (state, action) => {
-      return { ...state }
+      const user = action.payload
+      return { ...state, user, isAdmin: user.roleId === 2 }
     },
-  },
+    logout: (state, action) => {
+      return { ...state, user: null }
+    }
+  }
 })
 
 /* ======================
    Acciones asincronas ↓↓
    ====================== */
-export const loginAsync = values => dispatch => {
-  // const { email, password } = values
+export const loginAsync = values => async dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
@@ -29,13 +34,14 @@ export const loginAsync = values => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    },
+    }
   })
-  /* ======================
-       Simulo una peticion a un endpoint con setTimeout ↓↓
-       ====================== */
-  setTimeout(() => {
-    dispatch(login())
+
+  try {
+    const response = await httpAxiosInstance.post('/auth/login', values)
+    const { user, token } = response.data.data
+    localStorage.setItem('token', JSON.stringify(`Bearer ${token}`))
+    dispatch(login(user))
     Swal.close()
     Swal.fire({
       title: 'Credenciales válidas!',
@@ -43,12 +49,24 @@ export const loginAsync = values => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      },
+      }
     })
-  }, 500)
+  } catch (error) {
+    console.dir(error)
+    const errorMessage =
+      error.response?.data?.errors[0]?.msg || 'Error al iniciár sesión'
+    Swal.close()
+    Swal.fire({
+      title: 'Credenciales inválidas!',
+      text: errorMessage,
+      icon: 'error',
+      didOpen: () => {
+        Swal.hideLoading()
+      }
+    })
+  }
 }
-export const registerAsync = values => dispatch => {
-  const { name, surname, email, password } = values
+export const registerAsync = values => async dispatch => {
   Swal.fire({
     title: 'Cargando...',
     text: 'Por favor espere...',
@@ -56,13 +74,13 @@ export const registerAsync = values => dispatch => {
     allowOutsideClick: false,
     didOpen: () => {
       Swal.showLoading()
-    },
+    }
   })
-  /* ======================
-       Simulo una peticion a un endpoint con setTimeout ↓↓
-       ====================== */
-  setTimeout(() => {
-    dispatch(register())
+  try {
+    const response = await httpAxiosInstance.post('/auth/register', values)
+    const { user, token } = response.data.data
+    localStorage.setItem('token', JSON.stringify(`Bearer ${token}`))
+    dispatch(register(user))
     Swal.close()
     Swal.fire({
       title: 'Usuario registrado!',
@@ -70,14 +88,31 @@ export const registerAsync = values => dispatch => {
       icon: 'success',
       didOpen: () => {
         Swal.hideLoading()
-      },
+      }
     })
-  }, 500)
+  } catch (error) {
+    console.dir(error)
+    const errorMessage =
+      error.response?.data?.errors[0]?.msg || 'Error al iniciár sesión'
+    Swal.close()
+    Swal.fire({
+      title: 'Error al crear la cuenta!',
+      text: errorMessage,
+      icon: 'error',
+      didOpen: () => {
+        Swal.hideLoading()
+      }
+    })
+  }
+}
+export const logoutAsync = () => dispatch => {
+  localStorage.removeItem('token')
+  dispatch(logout())
 }
 
 /* ======================
    Acciones sincronas ↓↓
    ====================== */
-export const { login, register } = userSlice.actions
+export const { login, register, logout } = userSlice.actions
 
 export default userSlice.reducer

@@ -15,7 +15,7 @@ const Routing = () => {
   const location = useLocation()
   return (
     <RoutesAnimationLayout locationKey={location.key}>
-      <Routes location={location}>
+      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/news' element={<News />} />
         <Route path='/news/:id' element={<NewsDetail />} />
